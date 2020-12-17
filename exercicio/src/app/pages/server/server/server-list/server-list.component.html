@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-sm-6">
+    <button (click)="listServer()" class="btn btn-primary">Listar Servidores</button>
+  </div>
+
+</div>
+
+
+
+<div class="row">
+  <div class="col-sm-3 mb-4" *ngFor="let datalistServer of datalistServer">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Nome: {{datalistServer?.name}}</h5>
+        <p class="card-text">Id: {{ datalistServer?.id}}</p>
+        <a href="#" class="btn btn-primary">More</a>
+
+      </div>
+    </div>
+  </div>
+</div>
