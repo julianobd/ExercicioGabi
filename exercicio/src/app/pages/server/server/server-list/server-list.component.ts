@@ -4,6 +4,7 @@ import { ServerListService } from '../../../../shared/services/server-list.servi
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-server-list',
   templateUrl: './server-list.component.html',
@@ -66,8 +67,19 @@ export class ServerListComponent implements OnInit {
         .subscribe((res) => {
           console.log('adicionado', res);
         });
-
-
-
       }
+      delete(tabExp){
+        console.log(tabExp);
+        this.tabExp.splice(tabExp,1);
+        console.log(this.tabExp);
+        const id = "00000000-0000-0000-0000-000000000000";
+      this.tabExp.forEach((x) => {
+        x.id = id;
+      });
+        this.serverListService.addExp(this.tabExp).pipe(take(1))
+        .subscribe((res) => {
+          console.log('adicionado', res);
+        });
+      }
+
   }

@@ -6,6 +6,7 @@ import { TokenService } from './token.service';
   providedIn: 'root'
 })
 export class ServerListService {
+  expTable:any;
 
   constructor(private http:HttpClient, private tokenService:TokenService) {
 
@@ -24,4 +25,5 @@ export class ServerListService {
    addExp(tabExp){
       return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditExpTable/${this.getToken()}/${this.getServerId()}`,tabExp);
    }
+
 }

@@ -20,7 +20,8 @@ import { NavbarComponent } from './../../core/navbar/navbar.component';
     CommonModule,
     ServerRoutingModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ]
 })
 export class ServerModule { }
