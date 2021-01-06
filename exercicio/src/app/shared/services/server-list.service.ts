@@ -14,8 +14,14 @@ export class ServerListService {
    getToken(){
      return this.tokenService.getToken()
    }
+   getServerId(){
+     return this.tokenService.getServerId()
+   }
 
    getServerList(){
     return this.http.get(`http://hcs.dev4.com.br/api/Servers/ListServers/${this.getToken()}`);
+   }
+   addExp(tabExp){
+      return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditExpTable/${this.getToken()}/${this.getServerId()}`,tabExp);
    }
 }
