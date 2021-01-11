@@ -16,15 +16,19 @@ export class ServerListComponent implements OnInit {
   showdataServ:boolean = false;
   tabExp:any;
   experience:FormGroup;
+
+
   constructor(private serverListService: ServerListService,private router:Router, private fb: FormBuilder) {
     this.experience = this.fb.group({
       level:'',
       exp:'',
       title:''
     })
+
    }
 
   ngOnInit(): void {
+
   }
 
   listServer(){
@@ -81,5 +85,18 @@ export class ServerListComponent implements OnInit {
           console.log('adicionado', res);
         });
       }
+
+
+
+      editSave(title, level, exp){
+        this.experience.patchValue({
+          title: this.tabExp.title,
+          level: this.tabExp.level,
+          exp: this.tabExp.exp
+        })
+        console.log(this.tabExp)
+      }
+
+
 
   }

@@ -25,5 +25,12 @@ export class ServerListService {
    addExp(tabExp){
       return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditExpTable/${this.getToken()}/${this.getServerId()}`,tabExp);
    }
+   getdataServer(){
+     return this.http.get(`http://hcs.dev4.com.br/api/Servers/GetServer/${this.getToken()}/${this.getServerId()}`)
+   }
+
+   updateExp(tabExp){
+     return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditExpTable/${this.getToken()}/${this.getServerId()}`,tabExp)
+   }
 
 }
