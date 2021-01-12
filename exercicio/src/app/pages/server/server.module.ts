@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { ServerRoutingModule } from './server-routing.module';
 import { ServerListComponent } from './server/server-list/server-list.component';
@@ -12,6 +13,7 @@ import { TabExpComponent } from './server/tab-exp/tab-exp.component';
 import { TabExpCreateComponent } from './server/tab-exp/tab-exp-create/tab-exp-create.component';
 import { TabExpDeleteComponent } from './server/tab-exp/tab-exp-delete/tab-exp-delete.component';
 import { TabExpUpdateComponent } from './server/tab-exp/tab-exp-update/tab-exp-update.component';
+import { ParcelsComponent } from './server/parcels/parcels.component';
 
 
 @NgModule({
@@ -23,12 +25,14 @@ import { TabExpUpdateComponent } from './server/tab-exp/tab-exp-update/tab-exp-u
     TabExpComponent,
     TabExpCreateComponent,
     TabExpDeleteComponent,
-    TabExpUpdateComponent],
+    TabExpUpdateComponent,
+    ParcelsComponent],
   imports: [
     CommonModule,
     ServerRoutingModule,
     RouterModule,
     ReactiveFormsModule,
+    FormsModule
 
   ]
 })

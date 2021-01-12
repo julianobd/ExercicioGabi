@@ -1,1 +1,81 @@
-<p>server-edit works</p>
+<form [formGroup]="dataServer">
+  <!--Nome-->
+  <div class="form-group">
+    <label for="name">Nome</label>
+    <input type="text" class="form-control" id="name" formControlName="name">
+  </div>
+  <!-- Compartilhado-->
+  <div class="form-group">
+    <label for="shared">Compartilhado</label>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" id="shared" [value]="true" formControlName="shared">
+  <label class="form-check-label">
+    Sim
+  </label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" id="shared" [value]="false"  formControlName="shared">
+  <label class="form-check-label">
+    Não
+  </label>
+</div>
+  </div>
+  <!-- Doença-->
+  <div class="form-group">
+    <label for="hasDisease">Doença</label>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" id="hasDisease" [value]="true"  formControlName="hasDisease" >
+  <label class="form-check-label" for="hasDisease">
+    Sim
+  </label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" id="hasDisease" [value]="false" formControlName="hasDisease">
+  <label class="form-check-label" for="hasDisease">
+    Não
+  </label>
+</div>
+  </div>
+  <!--Dinheiro Inicial-->
+  <div class="form-group">
+    <label for="initialMoney">Dinheiro Inicial</label>
+    <input type="number" class="form-control" id="initialMoney" formControlName="initialMoney">
+  </div>
+  <!--Pontuação Inicial-->
+  <div class="form-group">
+    <label for="initialStatsPoints">Pontuação Inicial</label>
+    <input type="number" class="form-control" id="initialStatsPoints" formControlName="initialStatsPoints">
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Parcel Name</th>
+        <th scope="col">Parcel Description</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Deletar</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let dataParcels of dataParcels; let i=index">
+      <tr>
+        <th scope="row">1</th>
+        <td>{{ dataParcels?.parcelName }}</td>
+        <td>{{ dataParcels?.parcelDescription }}</td>
+        <td><button type="button" class="btn btn-info"
+        (click)="editParcel(i)">Edit</button></td>
+        <td><button type="button" class="btn btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+    <button class="btn btn-primary" (click)="saveUpdate()">Salvar</button>
+</form>
+
+
+
+
+
+
+

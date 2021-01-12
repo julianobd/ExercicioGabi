@@ -33,4 +33,9 @@ export class ServerListService {
      return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditExpTable/${this.getToken()}/${this.getServerId()}`,tabExp)
    }
 
+   updateServer(serverData){
+     return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditServer/${this.getToken()}/${this.getServerId()}`,serverData)
+    }
+
+
 }

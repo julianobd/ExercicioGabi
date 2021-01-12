@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ServerListService } from 'src/app/shared/services/server-list.service';
-import { ModalDirective } from 'ngx-bootstrap/modal';
+
 
 
 @Component({
