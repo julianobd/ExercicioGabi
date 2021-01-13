@@ -14,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ServerEditComponent implements OnInit {
   dataServer: FormGroup;
+  parcels:FormGroup;
   dataServers:any;
   dataUpdateServer:any[];
   dataParcels:any;
@@ -25,7 +26,14 @@ export class ServerEditComponent implements OnInit {
     private serverListService: ServerListService,
     private router:Router,
     private route:ActivatedRoute
-  ) { }
+  ) {
+    this.parcels = this.fb.group({
+      parcelName:'',
+      parcelDescription:''
+
+    })
+
+  }
 
   ngOnInit(): void {
     this.dataServer = this.fb.group({
@@ -35,6 +43,7 @@ export class ServerEditComponent implements OnInit {
       initialMoney:[null],
       initialStatsPoints:[null]
     })
+
 
     this.serverListService.getdataServer().pipe(take(1)).subscribe(
       (res:any)=>{
@@ -65,6 +74,40 @@ export class ServerEditComponent implements OnInit {
     this.parcelId = this.dataParcels[i].id;
     console.log(this.parcelId);
     this.router.navigate(['parcels', this.parcelId], {relativeTo: this.route})
+
+  }
+  addParcel(){
+      this.dataParcels.push({
+        parcelName: this.parcels.value.parcelName,
+        parcelDescription: this.parcels.value.parcelDescription
+      })
+      console.log(this.dataParcels);
+
+  }
+  saveParcel():void{
+    const id = "00000000-0000-0000-0000-000000000000";
+    this.dataParcels.forEach((x) => {
+      x.id = id;
+    });
+
+    this.serverListService.updateServer(this.dataServers).pipe(take(1)).subscribe((res:any)=>{
+      console.log('Parcel adicionada', res.parcels)
+    })
+    this.parcels.reset({
+      parcelName:'',
+      parcelDescription:''
+    })
+
+  }
+  delete(i){
+    this.dataParcels.splice(i,1);
+    const id = "00000000-0000-0000-0000-000000000000";
+    this.dataParcels.forEach((x) => {
+      x.id = id;
+    });
+    this.serverListService.updateServer(this.dataServers).pipe(take(1)).subscribe((res:any)=>{
+      console.log('Parcel Excluída', res.parcels)
+    })
 
   }
 

@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ServerListService } from 'src/app/shared/services/server-list.service';
 import { TokenService } from './../../../../shared/services/token.service';
 import { Router } from '@angular/router';
@@ -50,9 +50,9 @@ export class TabExpComponent implements OnInit {
 
   }
 
-    delete(tabExp){
-      console.log(tabExp);
-      this.tabExp.splice(tabExp,1);
+    delete(i){
+
+      this.tabExp.splice(i,1);
       console.log(this.tabExp);
       const id = "00000000-0000-0000-0000-000000000000";
     this.tabExp.forEach((x) => {

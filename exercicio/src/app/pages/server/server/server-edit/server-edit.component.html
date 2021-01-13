@@ -50,28 +50,61 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col"><button type="button" class="btn btn-info"  data-toggle="modal" data-target="#expTabModal4">
+          <span>+</span>
+          </button></th>
         <th scope="col">Parcel Name</th>
         <th scope="col">Parcel Description</th>
         <th scope="col">Editar</th>
         <th scope="col">Deletar</th>
 
+
       </tr>
     </thead>
     <tbody *ngFor="let dataParcels of dataParcels; let i=index">
       <tr>
-        <th scope="row">1</th>
+        <th scope="row"></th>
         <td>{{ dataParcels?.parcelName }}</td>
         <td>{{ dataParcels?.parcelDescription }}</td>
         <td><button type="button" class="btn btn-info"
         (click)="editParcel(i)">Edit</button></td>
-        <td><button type="button" class="btn btn-danger">Delete</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="delete(i)">Delete</button></td>
       </tr>
     </tbody>
   </table>
 
     <button class="btn btn-primary" (click)="saveUpdate()">Salvar</button>
 </form>
+<div class="modal" id="expTabModal4" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 modal-title>Adicionar Parcel</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="parcels">
+          <div class="form-group">
+            <label for="parcelName">Parcel Name</label>
+            <input type="text" class="form-control" id="parcelName" formControlName="parcelName">
+          </div>
+          <div class="form-group">
+            <label for="parcelDescription">Parcel Description</label>
+            <input type="text" class="form-control" id="parcelDescription" formControlName="parcelDescription">
+          </div>
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" (click)="addParcel()">Adicionar</button>
+      <button type="submit" class="btn btn-primary" (click)="saveParcel()">Salvar Alterações</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
