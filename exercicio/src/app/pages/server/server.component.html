@@ -33,8 +33,8 @@
     <li class="list-group-item">Dinehiro Inicial: {{dataList?.initialMoney}}</li>
     <li class="list-group-item">Pontuação Inicial: {{dataList?.initialStatsPoints}}</li>
     <li class="list-group-item"><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#expTabModal" routerLink="{{ serverId }}/tabExp" >Tabela de Experiência</button></li>
-    <li class="list-group-item"><button type="button" class="btn btn-outline-info">Pacotes</button></li>
-    <li class="list-group-item"><button type="button" class="btn btn-outline-info">Itens Disponíveis</button></li>
+    <li class="list-group-item"><button type="button" class="btn btn-outline-info" routerLink="{{ serverId }}/parcels">Pacotes</button></li>
+    <li class="list-group-item"><button type="button" class="btn btn-outline-info" routerLink="{{ serverId }}/avbitems">Itens Disponíveis</button></li>
     <li class="list-group-item"><button type="button" class="btn btn-outline-info" [routerLink]="['serverEdit']" >Editar Servidor</button></li>
   </ul>
 </div>

@@ -4,7 +4,7 @@ import { ServerListService } from 'src/app/shared/services/server-list.service';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import {Location} from '@angular/common';
+
 
 
 @Component({
@@ -13,7 +13,7 @@ import {Location} from '@angular/common';
   styleUrls: ['./parcels.component.sass']
 })
 export class ParcelsComponent implements OnInit {
-  dataParcel:FormGroup;
+  parcels:FormGroup;
   dataParcels: any[];
   parcelId:any;
   dataServer:any;
@@ -24,42 +24,70 @@ export class ParcelsComponent implements OnInit {
     private route:ActivatedRoute,
 
 
-  ) { }
+  ) {
+    this.parcels = this.fb.group({
+      parcelName:'',
+      parcelDescription:''
+
+    })
+  }
 
   ngOnInit(): void {
-    this.dataParcel = this.fb.group({
-      parcelName:[null],
-      parcelDescription:[null]
-    })
-    this.parcelId = this.route.snapshot.paramMap.get('parcId');
+
+   //this.parcelId = this.route.snapshot.paramMap.get('parcId');
 
     this.serverListService.getdataServer().pipe(take(1)).subscribe((res:any)=>{
       this.dataParcels = res.parcels
       this.dataServer = res;
       res.parcels.forEach(parcel =>{
         if(parcel.id === this.parcelId){
-          this.dataParcel = this.fb.group(parcel);
+          this.parcels = this.fb.group(parcel);
         }
       })
 
     })
   }
 
-  update(){
-    const id = "00000000-0000-0000-0000-000000000000";
-    Object.assign(this.dataParcels[this.dataParcels.findIndex(
-      el =>
-      el.id === this.dataParcel.value.id)], this.dataParcel.value);
 
-      this.dataParcels.forEach(x => {
-        x.id = id;
-      });
-      console.log(this.dataParcels);
-      this.serverListService.updateServer(this.dataServer).pipe(take(1)).subscribe((res)=>
-      {
-        console.log('Parcel Atualizada')
+  editParcel(i){
+    this.parcelId = this.dataParcels[i].id;
+    console.log(this.parcelId);
+    this.router.navigate(['editParcel', this.parcelId], {relativeTo: this.route})
+
+  }
+  addParcel(){
+      this.dataParcels.push({
+        parcelName: this.parcels.value.parcelName,
+        parcelDescription: this.parcels.value.parcelDescription
       })
-      this.router.navigate(['/server/serverEdit']);
+      console.log(this.dataParcels);
+
+  }
+  saveParcel():void{
+    const id = "00000000-0000-0000-0000-000000000000";
+    this.dataParcels.forEach((x) => {
+      x.id = id;
+    });
+
+    this.serverListService.updateServer(this.dataServer).pipe(take(1)).subscribe((res:any)=>{
+      console.log('Parcel adicionada', res.parcels)
+    })
+    this.parcels.reset({
+      parcelName:'',
+      parcelDescription:''
+    })
+
+  }
+  delete(i){
+    this.dataParcels.splice(i,1);
+    const id = "00000000-0000-0000-0000-000000000000";
+    this.dataParcels.forEach((x) => {
+      x.id = id;
+    });
+    this.serverListService.updateServer(this.dataServer).pipe(take(1)).subscribe((res:any)=>{
+      console.log('Parcel Excluída', res.parcels)
+    })
+
   }
 
 

@@ -14,6 +14,9 @@ import { TabExpCreateComponent } from './server/tab-exp/tab-exp-create/tab-exp-c
 import { TabExpDeleteComponent } from './server/tab-exp/tab-exp-delete/tab-exp-delete.component';
 import { TabExpUpdateComponent } from './server/tab-exp/tab-exp-update/tab-exp-update.component';
 import { ParcelsComponent } from './server/parcels/parcels.component';
+import { AvailableItemsComponent } from './server/available-items/available-items.component';
+import { ParcelEditComponent } from './server/parcels/parcel-edit/parcel-edit.component';
+import { AvailableItemsEditComponent } from './server/available-items/available-items-edit/available-items-edit.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { ParcelsComponent } from './server/parcels/parcels.component';
     TabExpCreateComponent,
     TabExpDeleteComponent,
     TabExpUpdateComponent,
-    ParcelsComponent],
+    ParcelsComponent,
+    AvailableItemsComponent,
+    ParcelEditComponent,
+    AvailableItemsEditComponent],
   imports: [
     CommonModule,
     ServerRoutingModule,

@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">
+            <button type="button" class="btn btn-info">
+              <span>+</span>
+              </button>
+          </th>
+          <th scope="col">Name</th>
+          <th scope="col">Saúde</th>
+          <th scope="col">Vestimenta</th>
+          <th scope="col">Experiência</th>
+          <th scope="col">Fome</th>
+          <th scope="col">Dinheiro</th>
+          <th scope="col">Status Point</th>
+          <th scope="col">isInitial</th>
+          <th scope="col">Qtde Inicial</th>
+          <th scope="col">isVirtual</th>
+          <th scope="col">Editar Deletar</th>
+          <th scope="col"></th>
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let avbItem of avbItem; let i=index">
+        <tr>
+          <th scope="row">1</th>
+          <td>{{ avbItem?.name }}</td>
+          <td>{{ avbItem?.health }}</td>
+          <td>{{ avbItem?.vest}}</td>
+          <td>{{ avbItem?.experience }}</td>
+          <td>{{ avbItem?.hungry }}</td>
+          <td>{{ avbItem?.money }}</td>
+          <td>{{ avbItem?.statusPoint }}</td>
+          <td>{{ avbItem?.isInitial }}</td>
+          <td>{{ avbItem?.quantityInitial }}</td>
+          <td>{{ avbItem?.isVirtual }}</td>
+          <td><button type="button" class="btn btn-info"(click)="editAvb(i)">Edit</button></td>
+          <td>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
