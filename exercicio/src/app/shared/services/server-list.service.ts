@@ -36,8 +36,8 @@ export class ServerListService {
    updateServer(serverData){
      return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditServer/${this.getToken()}/${this.getServerId()}`,serverData)
     }
-    updateAvb(dataServer){
-      return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditAvailableItems/${this.getToken()}/${this.getServerId()}`,dataServer)
+    updateAvb(tabAvb){
+      return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditAvailableItems/${this.getToken()}/${this.getServerId()}`,tabAvb)
     }
 
 

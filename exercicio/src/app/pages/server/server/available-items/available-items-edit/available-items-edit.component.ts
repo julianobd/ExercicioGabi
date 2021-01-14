@@ -61,7 +61,7 @@ update(){
   });
   console.log(this.tabAvb);
 
-  this.serverListService.updateAvb(this.dataServer).pipe(take(1)).subscribe(res =>{
+  this.serverListService.updateAvb(this.tabAvb).pipe(take(1)).subscribe(res =>{
       console.log('Available Item Add com sucesso')
   })
       this.location.back();
