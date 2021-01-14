@@ -17,6 +17,7 @@ import { ParcelsComponent } from './server/parcels/parcels.component';
 import { AvailableItemsComponent } from './server/available-items/available-items.component';
 import { ParcelEditComponent } from './server/parcels/parcel-edit/parcel-edit.component';
 import { AvailableItemsEditComponent } from './server/available-items/available-items-edit/available-items-edit.component';
+import { ServerCreateComponent } from './server/server-create/server-create.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { AvailableItemsEditComponent } from './server/available-items/available-
     ParcelsComponent,
     AvailableItemsComponent,
     ParcelEditComponent,
-    AvailableItemsEditComponent],
+    AvailableItemsEditComponent,
+    ServerCreateComponent],
   imports: [
     CommonModule,
     ServerRoutingModule,

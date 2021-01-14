@@ -8,9 +8,11 @@ import { TabExpComponent } from './server/tab-exp/tab-exp.component'
 import { TabExpDeleteComponent } from './server/tab-exp/tab-exp-delete/tab-exp-delete.component';
 import { TabExpUpdateComponent } from './server/tab-exp/tab-exp-update/tab-exp-update.component';
 import { ParcelsComponent } from './server/parcels/parcels.component';
-import { ParcelEditComponent } from './server/parcels/parcel-edit/parcel-edit.component'
-import { AvailableItemsComponent } from './server/available-items/available-items.component'
-import { AvailableItemsEditComponent } from './server/available-items/available-items-edit/available-items-edit.component'
+import { ParcelEditComponent } from './server/parcels/parcel-edit/parcel-edit.component';
+import { AvailableItemsComponent } from './server/available-items/available-items.component';
+import { AvailableItemsEditComponent } from './server/available-items/available-items-edit/available-items-edit.component';
+import { ServerCreateComponent } from './server/server-create/server-create.component';
+import { TabExpCreateComponent } from './server/tab-exp/tab-exp-create/tab-exp-create.component'
 
 
 const routes: Routes = [
@@ -23,7 +25,9 @@ const routes: Routes = [
   { path: ':id/parcels', component: ParcelsComponent },
   { path: ':id/parcels/editParcel/:parcId', component: ParcelEditComponent },
   { path: ':id/avbitems', component:AvailableItemsComponent },
-  { path: ':id/avbitems/editAvb/:avbId', component:AvailableItemsEditComponent}
+  { path: ':id/avbitems/editAvb/:avbId', component:AvailableItemsEditComponent},
+  { path: 'serverCreate', component: ServerCreateComponent},
+  { path: 'serverCreate/:id/tabExp/createTabExp', component: TabExpCreateComponent}
 
 ];
 

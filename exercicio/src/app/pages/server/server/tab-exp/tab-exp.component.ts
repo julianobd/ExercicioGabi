@@ -51,7 +51,6 @@ export class TabExpComponent implements OnInit {
   }
 
     delete(i){
-
       this.tabExp.splice(i,1);
       console.log(this.tabExp);
       const id = "00000000-0000-0000-0000-000000000000";
@@ -60,7 +59,7 @@ export class TabExpComponent implements OnInit {
     });
       this.serverListService.addExp(this.tabExp).pipe(take(1))
       .subscribe((res) => {
-        console.log('adicionado', res);
+        console.log('excluído', res);
       });
     }
     addExp(){

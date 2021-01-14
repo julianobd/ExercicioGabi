@@ -19,6 +19,11 @@ export class ServerListService {
      return this.tokenService.getServerId()
    }
 
+   serverCreate(dados){
+        return this.http.post(`http://hcs.dev4.com.br/api/Servers/AddServers/${this.getToken()}`, dados)
+
+   }
+
    getServerList(){
     return this.http.get(`http://hcs.dev4.com.br/api/Servers/ListServers/${this.getToken()}`);
    }
@@ -39,6 +44,7 @@ export class ServerListService {
     updateAvb(tabAvb){
       return this.http.put(`http://hcs.dev4.com.br/api/Servers/EditAvailableItems/${this.getToken()}/${this.getServerId()}`,tabAvb)
     }
+
 
 
 }
