@@ -44,6 +44,9 @@ export class ServerComponent implements OnInit {
     sessionStorage.setItem('server', JSON.stringify(this.datalistServer[i]));
     this.serverId = this.datalistServer[i].id;
     }
+    user(){
+      this.router.navigate(['/user'])
+    }
 
 
 }
