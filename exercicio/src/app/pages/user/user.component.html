@@ -23,10 +23,10 @@
         <td>{{users?.email}}</td>
         <td>{{users?.password}}</td>
         <td>{{users?.permission}}</td>
-        <td><button type="button" class="btn btn-info"
-          [routerLink]="['userEdit']">Edit</button></td>
+        <td><button type="button" class="btn btn-info" (click)="userEdit(i)"
+          >Edit</button></td>
         <td>
-          <button type="button" class="btn btn-danger" [routerLink]="['userDelete']">Delete</button>
+          <button type="button" class="btn btn-danger" (click)="userDelete(i)">Delete</button>
         </td>
       </tr>
     </tbody>

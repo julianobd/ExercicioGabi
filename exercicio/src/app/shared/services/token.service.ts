@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class TokenService {
   private token:string;
   private serverId: string;
+  private userId:string;
   constructor(private http:HttpClient) { }
 
   getToken(){
@@ -21,5 +22,11 @@ export class TokenService {
     console.log('id salvo', this.serverId)
     return this.serverId;
 
+  }
+  getUserId(){
+    let userID = JSON.parse(sessionStorage.getItem('userid'))
+    this.userId = userID;
+    console.log(this.userId);
+    return this.userId;
   }
 }

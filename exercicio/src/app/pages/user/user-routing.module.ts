@@ -9,8 +9,8 @@ import { UserDeleteComponent } from  './user-delete/user-delete.component';
 const routes: Routes = [
   { path: '', component: UserComponent },
   { path: 'userCreate', component: UserCreateComponent },
-  { path: 'userDelete', component: UserDeleteComponent },
-  { path: 'userEdit', component: UserEditComponent }
+  { path: 'userDelete/:userId', component: UserDeleteComponent },
+  { path: 'userEdit/:userId', component: UserEditComponent }
 ];
 
 

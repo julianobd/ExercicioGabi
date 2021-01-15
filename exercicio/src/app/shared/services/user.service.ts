@@ -16,6 +16,10 @@ export class UserService {
    getToken(){
     return this.tokenService.getToken()
    }
+   getUserId(){
+     return this.tokenService.getUserId()
+   }
+
    getUsers(){
       return this.http.get(`https://hcs.dev4.com.br/api/Users/GetUsers/${this.getToken()}`)
   }
@@ -29,5 +33,13 @@ export class UserService {
 
     }
     return this.http.post(`https://hcs.dev4.com.br/api/Users/AddUser/${this.getToken()}`, dataUser)
+  }
+
+  deleteUser(){
+    return this.http.delete(`https://hcs.dev4.com.br/api/Users/DelUser/${this.getToken()}/${this.getUserId()}`)
+  }
+
+  editUser(dataEdit){
+    return this.http.put(`https://hcs.dev4.com.br/api/Users/EditUser/${this.getToken()}/${this.getUserId()}`,dataEdit)
   }
 }
