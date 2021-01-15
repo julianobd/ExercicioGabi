@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">PassWord</th>
+      <th scope="col">Permission</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let users of users; let i=index">
+    <tr>
+      <th scope="row">1</th>
+      <td>{{users?.name}}</td>
+      <td>{{users?.email}}</td>
+      <td>{{users?.password}}</td>
+      <td>{{users?.permission}}</td>
+    </tr>
+  </tbody>
+</table>

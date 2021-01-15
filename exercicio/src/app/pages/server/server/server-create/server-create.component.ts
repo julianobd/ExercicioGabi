@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServerListService }  from '../../../../shared/services/server-list.service'
 import { take } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
-import { relative } from 'path';
+
 
 
 @Component({
@@ -41,7 +41,7 @@ export class ServerCreateComponent implements OnInit {
     this.serverListService.serverCreate(this.datanewServer).pipe(take(1)).subscribe(res=>{
       console.log(res)
       this.serverId = res;
-      this.router.navigate([this.serverId,'tabExp', 'createTabExp'], {relativeTo: this.route});
+
     })
 
 

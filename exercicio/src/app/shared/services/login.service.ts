@@ -8,7 +8,7 @@ export class LoginService {
   readonly apiUrl:string;
 
   constructor(private http:HttpClient) {
-    this.apiUrl = 'http://hcs.dev4.com.br/api/Login/Login';
+    this.apiUrl = 'https://hcs.dev4.com.br/api/Login/Login';
   }
 
   postLogin(login){
