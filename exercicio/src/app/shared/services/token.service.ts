@@ -9,6 +9,7 @@ export class TokenService {
   private serverId: string;
   private userId:string;
   private avataruuId:string;
+  private banido:string;
   constructor(private http:HttpClient) { }
 
   getToken(){
@@ -37,4 +38,8 @@ export class TokenService {
     console.log(this.avataruuId);
     return this.avataruuId;
   }
-}
+  getBan(){
+    let banned = JSON.parse(sessionStorage.getItem('banned'))
+    this.banido = banned;
+    return this.banido;
+  }}

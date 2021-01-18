@@ -52,9 +52,7 @@ export class AvatarComponent implements OnInit {
     sessionStorage.setItem('avatar', JSON.stringify(this.avatarId));
   }
   banir(){
-    this.dataReason = this.fb.group({
-      reason:this.dataAvatar.reason
-    })
+    sessionStorage.setItem('banned', JSON.stringify(this.dataReason.value));
    this.avatarservice.banir(this.dataReason.value).pipe(take(1)).subscribe(res=>{
     console.log('Banido')
     })

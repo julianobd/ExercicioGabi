@@ -21,6 +21,8 @@ import { ServerCreateComponent } from './server/server-create/server-create.comp
 import { AvatarComponent } from './server/avatar/avatar.component';
 import { AvatarEditComponent } from './server/avatar/avatar-edit/avatar-edit.component';
 import { AvatarDeleteComponent } from './server/avatar/avatar-delete/avatar-delete.component';
+import { ExpMachineComponent } from './server/exp-machine/exp-machine.component';
+import { ExpMachineEditComponent } from './server/exp-machine/exp-machine-edit/exp-machine-edit.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { AvatarDeleteComponent } from './server/avatar/avatar-delete/avatar-dele
     ServerCreateComponent,
     AvatarComponent,
     AvatarEditComponent,
-    AvatarDeleteComponent],
+    AvatarDeleteComponent,
+    ExpMachineComponent,
+    ExpMachineEditComponent],
   imports: [
     CommonModule,
     ServerRoutingModule,

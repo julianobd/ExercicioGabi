@@ -21,6 +21,9 @@ export class AvatarService {
   getAvatarId(){
     return this.tokenService.getAvatarId()
   }
+  getBan(){
+    return this.tokenService.getBan()
+  }
 
   getAvatarlist(){
     return this.http.get(`https://hcs.dev4.com.br/api/Avatar/ListAvatars/${this.getToken()}/${this.getServerId()}`);
@@ -29,7 +32,7 @@ export class AvatarService {
       return this.http.put(`https://hcs.dev4.com.br/api/Avatar/EditAvatar/${this.getToken()}/${this.getAvatarId()}`, dataAv)
   }
   banir(reason){
-    return this.http.put(`https://hcs.dev4.com.br/api/Avatar/BanAvatar/${this.getToken()}/${this.getAvatarId()}/{reason}`,reason)
+    return this.http.put(`https://hcs.dev4.com.br/api/Avatar/BanAvatar/${this.getToken()}/${this.getAvatarId()}/${this.getBan()}`,reason)
   }
   desbanir(datareason){
     return this.http.put(`https://hcs.dev4.com.br/api/Avatar/UnbanAvatar/${this.getToken()}/${this.getAvatarId()}`,datareason)
