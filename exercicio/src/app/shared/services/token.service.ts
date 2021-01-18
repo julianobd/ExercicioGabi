@@ -8,6 +8,7 @@ export class TokenService {
   private token:string;
   private serverId: string;
   private userId:string;
+  private avataruuId:string;
   constructor(private http:HttpClient) { }
 
   getToken(){
@@ -28,5 +29,12 @@ export class TokenService {
     this.userId = userID;
     console.log(this.userId);
     return this.userId;
+  }
+
+  getAvatarId(){
+    let avatarId = JSON.parse(sessionStorage.getItem('avatar'))
+    this.avataruuId = avatarId;
+    console.log(this.avataruuId);
+    return this.avataruuId;
   }
 }

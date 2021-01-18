@@ -1,0 +1,45 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">
+        <button type="button" class="btn btn-info">
+        <span>+</span>
+        </button>
+      </th>
+      <th scope="col">title</th>
+      <th scope="col">health</th>
+      <th scope="col">armor</th>
+      <th scope="col">isLeader</th>
+      <th scope="col">isBanned</th>
+      <th scope="col">exp</th>
+      <th scope="col">money</th>
+      <th scope="col">statusPoint</th>
+      <th scope="col">strength</th>
+      <th scope="col">agility</th>
+      <th scope="col">accuracy</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let avatar of avatar; let i=index">
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ avatar?.title }}</td>
+      <td>{{ avatar?.health }}</td>
+      <td>{{ avatar?.armor }}</td>
+      <td>{{ avatar?.isLeader }}</td>
+      <td>{{ avatar?.isBanned }}</td>
+      <td>{{ avatar?.experience }}</td>
+      <td>{{ avatar?.money }}</td>
+      <td>{{ avatar?.statsPoints }}</td>
+      <td>{{ avatar?.strength }}</td>
+      <td>{{ avatar?.agility }}</td>
+      <td>{{ avatar?.accuracy }}</td>
+      <td>
+        <button type="button" class="btn btn-info ml-1" (click)="avatarEdit(i)">Editar</button>
+        <button type="button" class="btn btn-danger ml-1">Excluir</button>
+        <button type="button" class="btn btn-primary">Desbanir</button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>

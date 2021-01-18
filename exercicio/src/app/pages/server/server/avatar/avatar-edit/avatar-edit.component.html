@@ -1,0 +1,46 @@
+<form [formGroup]="avatar" (ngSubmit)="update()">
+  <div class="form-group">
+    <label for="title">Título</label>
+    <input type="text" class="form-control" id="title" formControlName="title">
+  </div>
+  <div class="form-group">
+    <label for="health">Health</label>
+    <input type="number" class="form-control" id="health" formControlName="health" >
+  </div>
+  <div class="form-group">
+    <label for="armor">armor</label>
+    <input type="number" class="form-control" id="armor" formControlName="armor" >
+  </div>
+
+
+  <div class="form-group">
+    <label for="experience">exp</label>
+    <input type="number" class="form-control" id="experience" formControlName="experience">
+  </div>
+  <div class="form-group">
+    <label for="money ">money </label>
+    <input type="number" class="form-control" id="money" formControlName="money">
+  </div>
+  <div class="form-group">
+    <label for="statsPoints">statsPoints</label>
+    <input type="number" class="form-control" id="statsPoints" formControlName="statsPoints">
+  </div>
+  <div class="form-group">
+    <label for="strength">strength </label>
+    <input type="number" class="form-control" id="strength" formControlName="strength">
+  </div>
+  <div class="form-group">
+    <label for="agility">agility</label>
+    <input type="number" class="form-control" id="agility" formControlName="agility">
+  </div>
+  <div class="form-group">
+    <label for="accuracy">accuracy</label>
+    <input type="number" class="form-control" id="accuracy" formControlName="accuracy">
+  </div>
+
+
+
+
+
+  <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+</form>

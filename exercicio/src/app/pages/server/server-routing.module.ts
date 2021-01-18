@@ -12,7 +12,9 @@ import { ParcelEditComponent } from './server/parcels/parcel-edit/parcel-edit.co
 import { AvailableItemsComponent } from './server/available-items/available-items.component';
 import { AvailableItemsEditComponent } from './server/available-items/available-items-edit/available-items-edit.component';
 import { ServerCreateComponent } from './server/server-create/server-create.component';
-import { TabExpCreateComponent } from './server/tab-exp/tab-exp-create/tab-exp-create.component'
+import { TabExpCreateComponent } from './server/tab-exp/tab-exp-create/tab-exp-create.component';
+import { AvatarComponent } from './server/avatar/avatar.component';
+import { AvatarEditComponent } from './server/avatar/avatar-edit/avatar-edit.component'
 
 
 const routes: Routes = [
@@ -27,7 +29,9 @@ const routes: Routes = [
   { path: ':id/avbitems', component:AvailableItemsComponent },
   { path: ':id/avbitems/editAvb/:avbId', component:AvailableItemsEditComponent},
   { path: 'serverCreate', component: ServerCreateComponent},
-  { path: 'serverCreate/:id/tabExp/createTabExp', component: TabExpCreateComponent}
+  { path: 'serverCreate/:id/tabExp/createTabExp', component: TabExpCreateComponent},
+  {path: ':id/avatar', component: AvatarComponent},
+  { path: ':id/avatar/editAvatar/:avatarId', component: AvatarEditComponent}
 
 ];
 

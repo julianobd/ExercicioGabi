@@ -18,6 +18,9 @@ import { AvailableItemsComponent } from './server/available-items/available-item
 import { ParcelEditComponent } from './server/parcels/parcel-edit/parcel-edit.component';
 import { AvailableItemsEditComponent } from './server/available-items/available-items-edit/available-items-edit.component';
 import { ServerCreateComponent } from './server/server-create/server-create.component';
+import { AvatarComponent } from './server/avatar/avatar.component';
+import { AvatarEditComponent } from './server/avatar/avatar-edit/avatar-edit.component';
+import { AvatarDeleteComponent } from './server/avatar/avatar-delete/avatar-delete.component';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { ServerCreateComponent } from './server/server-create/server-create.comp
     AvailableItemsComponent,
     ParcelEditComponent,
     AvailableItemsEditComponent,
-    ServerCreateComponent],
+    ServerCreateComponent,
+    AvatarComponent,
+    AvatarEditComponent,
+    AvatarDeleteComponent],
   imports: [
     CommonModule,
     ServerRoutingModule,
