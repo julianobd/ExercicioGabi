@@ -1,10 +1,10 @@
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { AvatarService } from '../../../../shared/services/avatar.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { ThrowStmt } from '@angular/compiler';
-import { relative } from 'path';
+
 
 @Component({
   selector: 'app-avatar',
@@ -12,6 +12,7 @@ import { relative } from 'path';
   styleUrls: ['./avatar.component.sass']
 })
 export class AvatarComponent implements OnInit {
+  dataReason:FormGroup
   avatar:any;
   avatarId:any;
   dataAvatar:any;
@@ -19,8 +20,15 @@ export class AvatarComponent implements OnInit {
   constructor(
     private avatarservice:AvatarService,
     private router:Router,
-    private route:ActivatedRoute
-  ) { }
+    private route:ActivatedRoute,
+    private fb:FormBuilder
+
+
+  ) {
+    this.dataReason = this.fb.group({
+        reason:''
+    })
+   }
 
   ngOnInit(): void {
     this.avatarservice.getAvatarlist().pipe(take(1)).subscribe(res=>{
@@ -37,6 +45,32 @@ export class AvatarComponent implements OnInit {
     sessionStorage.setItem('avatar', JSON.stringify(this.avatarId));
     this.router.navigate(['editAvatar', this.avatarId], {relativeTo:this.route} )
 
+  }
+  getUuid(i){
+    this.avatarId = this.avatar[i].uuid;
+    console.log(this.avatarId);
+    sessionStorage.setItem('avatar', JSON.stringify(this.avatarId));
+  }
+  banir(){
+    this.dataReason = this.fb.group({
+      reason:this.dataAvatar.reason
+    })
+   this.avatarservice.banir(this.dataReason.value).pipe(take(1)).subscribe(res=>{
+    console.log('Banido')
+    })
+
+  }
+  desbanir(i){
+    this.avatarId = this.avatar[i].uuid;
+    console.log(this.avatarId);
+    sessionStorage.setItem('avatar', JSON.stringify(this.avatarId));
+  this.dataReason.setValue({
+      reason:''
+    });
+
+    this.avatarservice.desbanir(this.dataReason.value).pipe(take(1)).subscribe(res => {
+      console.log('desbanido')
+    })
   }
 
 }

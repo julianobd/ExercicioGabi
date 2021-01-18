@@ -28,4 +28,11 @@ export class AvatarService {
   updateAvatar(dataAv){
       return this.http.put(`https://hcs.dev4.com.br/api/Avatar/EditAvatar/${this.getToken()}/${this.getAvatarId()}`, dataAv)
   }
+  banir(reason){
+    return this.http.put(`https://hcs.dev4.com.br/api/Avatar/BanAvatar/${this.getToken()}/${this.getAvatarId()}/{reason}`,reason)
+  }
+  desbanir(datareason){
+    return this.http.put(`https://hcs.dev4.com.br/api/Avatar/UnbanAvatar/${this.getToken()}/${this.getAvatarId()}`,datareason)
+
+  }
 }
