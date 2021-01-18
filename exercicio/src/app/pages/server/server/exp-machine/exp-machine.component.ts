@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
-import { ExpMachineService } from '../../../../shared/services/exp-machine.service'
+import { ExpMachineService } from '../../../../shared/services/exp-machine.service';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-exp-machine',
@@ -10,8 +12,12 @@ import { ExpMachineService } from '../../../../shared/services/exp-machine.servi
 export class ExpMachineComponent implements OnInit {
   expMach:any;
   dataexpMach:any;
+  machineId:any;
   constructor(
-    private expMachineService: ExpMachineService
+    private expMachineService: ExpMachineService,
+    private router:Router,
+    private route:ActivatedRoute
+
   ) { }
 
   ngOnInit(): void {
@@ -19,6 +25,12 @@ export class ExpMachineComponent implements OnInit {
       this.dataexpMach = res;
       this.expMach = this.dataexpMach
     })
+  }
+  editMach(i){
+    this.machineId = this.expMach[i].id;
+    console.log(this.machineId)
+    sessionStorage.setItem('machine', JSON.stringify(this.machineId));
+    this.router.navigate(['expMachEdit', this.machineId], {relativeTo:this.route} )
   }
 
 }

@@ -10,6 +10,7 @@ export class TokenService {
   private userId:string;
   private avataruuId:string;
   private banido:string;
+  private machId:string;
   constructor(private http:HttpClient) { }
 
   getToken(){
@@ -42,4 +43,10 @@ export class TokenService {
     let banned = JSON.parse(sessionStorage.getItem('banned'))
     this.banido = banned;
     return this.banido;
-  }}
+  }
+  getMachId(){
+    let machine = JSON.parse(sessionStorage.getItem('machine'))
+    this.machId = machine;
+    return this.machId;
+  }
+}

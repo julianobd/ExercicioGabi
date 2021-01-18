@@ -19,9 +19,15 @@ export class ExpMachineService {
    getServerId(){
      return this.tokenService.getServerId();
    }
+   getMachId(){
+     return this.tokenService.getMachId()
+   }
 
    listExpMach(){
      return this.http.get(`https://hcs.dev4.com.br/api/ExpMachines/GetExpMachines/${this.getToken()}/${this.getServerId()}`)
+   }
+   updateMach(dataMach){
+     return this.http.put(`https://hcs.dev4.com.br/api/ExpMachines/EditExpMachine/${this.getToken()}/${this.getMachId()}`,dataMach)
    }
 
 

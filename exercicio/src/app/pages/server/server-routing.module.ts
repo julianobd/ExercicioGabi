@@ -15,7 +15,8 @@ import { ServerCreateComponent } from './server/server-create/server-create.comp
 import { TabExpCreateComponent } from './server/tab-exp/tab-exp-create/tab-exp-create.component';
 import { AvatarComponent } from './server/avatar/avatar.component';
 import { AvatarEditComponent } from './server/avatar/avatar-edit/avatar-edit.component';
-import { ExpMachineComponent } from './server/exp-machine/exp-machine.component'
+import { ExpMachineComponent } from './server/exp-machine/exp-machine.component';
+import { ExpMachineEditComponent } from './server/exp-machine/exp-machine-edit/exp-machine-edit.component'
 
 
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'serverCreate/:id/tabExp/createTabExp', component: TabExpCreateComponent},
   {path: ':id/avatar', component: AvatarComponent},
   { path: ':id/avatar/editAvatar/:avatarId', component: AvatarEditComponent},
-  {path:':id/expMachine', component: ExpMachineComponent }
+  {path:':id/expMachine', component: ExpMachineComponent },
+  {path: ':id/expMachine/expMachEdit/:idMach', component: ExpMachineEditComponent}
 
 ];
 

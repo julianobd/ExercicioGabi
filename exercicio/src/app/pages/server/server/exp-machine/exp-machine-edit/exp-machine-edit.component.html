@@ -1,1 +1,54 @@
-<p>exp-machine-edit works!</p>
+<form [formGroup]="expMach" (ngSubmit)="update()">
+  <div class="form-group">
+    <label for="description">description</label>
+    <input type="text" class="form-control" id="description" formControlName="description">
+  </div>
+  <div class="form-group">
+    <label for="expEachMinute">expEachMinute</label>
+    <input type="number" class="form-control" id="expEachMinute" formControlName="expEachMinute" >
+  </div>
+
+  <div class="form-group">
+    <label for="automaticStart">automaticStart</label>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="automaticStart" [value]="true" formControlName="automaticStart">
+        <label class="form-check-label">
+          Sim
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" id="automaticStart" [value]="false"  formControlName="automaticStart">
+        <label class="form-check-label">
+          Não
+        </label>
+      </div>
+  </div>
+
+  <div class="form-group">
+    <label for="hourStart">hourStart</label>
+    <input type="text" class="form-control" id="hourStart" formControlName="hourStart">
+  </div>
+  <div class="form-group">
+    <label for="hourEnds">hourEnds</label>
+    <input type="text" class="form-control" id="hourEnds" formControlName="hourEnds">
+  </div>
+
+  <div class="form-group">
+    <label for="enabled">enabled</label>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" id="enabled" [value]="true" formControlName="enabled">
+  <label class="form-check-label">
+    Sim
+  </label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" id="enabled" [value]="false"  formControlName="enabled">
+  <label class="form-check-label">
+    Não
+  </label>
+</div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+</form>
