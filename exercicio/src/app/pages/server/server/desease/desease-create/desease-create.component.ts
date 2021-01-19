@@ -19,9 +19,8 @@ export class DeseaseCreateComponent implements OnInit {
         name: '',
         damageEachTenMinutes: '',
         durationInMinutes: '',
-        contagious: '',
-        hasVacine: '',
-        vacinePrice: '',
+        contagious: ''
+
       })
      }
 
