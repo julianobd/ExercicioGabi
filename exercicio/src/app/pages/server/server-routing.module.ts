@@ -16,7 +16,12 @@ import { TabExpCreateComponent } from './server/tab-exp/tab-exp-create/tab-exp-c
 import { AvatarComponent } from './server/avatar/avatar.component';
 import { AvatarEditComponent } from './server/avatar/avatar-edit/avatar-edit.component';
 import { ExpMachineComponent } from './server/exp-machine/exp-machine.component';
-import { ExpMachineEditComponent } from './server/exp-machine/exp-machine-edit/exp-machine-edit.component'
+import { ExpMachineEditComponent } from './server/exp-machine/exp-machine-edit/exp-machine-edit.component';
+import { JobsComponent } from './server/jobs/jobs.component';
+import { DeseaseComponent } from './server/desease/desease.component';
+import { JobCreateComponent } from './server/jobs/job-create/job-create.component';
+import { JobEditComponent } from './server/jobs/job-edit/job-edit.component';
+import { JobDeleteComponent } from './server/jobs/job-delete/job-delete.component';
 
 
 const routes: Routes = [
@@ -32,10 +37,16 @@ const routes: Routes = [
   { path: ':id/avbitems/editAvb/:avbId', component:AvailableItemsEditComponent},
   { path: 'serverCreate', component: ServerCreateComponent},
   { path: 'serverCreate/:id/tabExp/createTabExp', component: TabExpCreateComponent},
-  {path: ':id/avatar', component: AvatarComponent},
+  {  path: ':id/avatar', component: AvatarComponent},
   { path: ':id/avatar/editAvatar/:avatarId', component: AvatarEditComponent},
-  {path:':id/expMachine', component: ExpMachineComponent },
-  {path: ':id/expMachine/expMachEdit/:idMach', component: ExpMachineEditComponent}
+  {  path:':id/expMachine', component: ExpMachineComponent },
+  {  path: ':id/expMachine/expMachEdit/:idMach', component: ExpMachineEditComponent},
+  { path: ':id/jobs', component: JobsComponent},
+  { path: ':id/desease', component: DeseaseComponent},
+  { path: ':id/jobs/jobEdit/:jobId', component: JobEditComponent},
+  { path: ':id/jobs/jobCreate', component: JobCreateComponent },
+  { path: ':id/jobs/jobDelete/:jobId', component: JobDeleteComponent}
+
 
 ];
 

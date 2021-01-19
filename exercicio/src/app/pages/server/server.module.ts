@@ -23,6 +23,14 @@ import { AvatarEditComponent } from './server/avatar/avatar-edit/avatar-edit.com
 import { AvatarDeleteComponent } from './server/avatar/avatar-delete/avatar-delete.component';
 import { ExpMachineComponent } from './server/exp-machine/exp-machine.component';
 import { ExpMachineEditComponent } from './server/exp-machine/exp-machine-edit/exp-machine-edit.component';
+import { JobsComponent } from './server/jobs/jobs.component';
+import { JobCreateComponent } from './server/jobs/job-create/job-create.component';
+import { JobEditComponent } from './server/jobs/job-edit/job-edit.component';
+import { JobDeleteComponent } from './server/jobs/job-delete/job-delete.component';
+import { DeseaseComponent } from './server/desease/desease.component';
+import { DeseaseEditComponent } from './server/desease/desease-edit/desease-edit.component';
+import { DeseaseCreateComponent } from './server/desease/desease-create/desease-create.component';
+import { DeseaseDeleteComponent } from './server/desease/desease-delete/desease-delete.component';
 
 
 @NgModule({
@@ -44,7 +52,15 @@ import { ExpMachineEditComponent } from './server/exp-machine/exp-machine-edit/e
     AvatarEditComponent,
     AvatarDeleteComponent,
     ExpMachineComponent,
-    ExpMachineEditComponent],
+    ExpMachineEditComponent,
+    JobsComponent,
+    JobCreateComponent,
+    JobEditComponent,
+    JobDeleteComponent,
+    DeseaseComponent,
+    DeseaseEditComponent,
+    DeseaseCreateComponent,
+    DeseaseDeleteComponent],
   imports: [
     CommonModule,
     ServerRoutingModule,

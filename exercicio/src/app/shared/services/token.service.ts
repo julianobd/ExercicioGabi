@@ -11,6 +11,7 @@ export class TokenService {
   private avataruuId:string;
   private banido:string;
   private machId:string;
+  private jobID:string;
   constructor(private http:HttpClient) { }
 
   getToken(){
@@ -48,5 +49,11 @@ export class TokenService {
     let machine = JSON.parse(sessionStorage.getItem('machine'))
     this.machId = machine;
     return this.machId;
+  }
+  getJobId(){
+    let jobId = JSON.parse(sessionStorage.getItem('jobId'))
+    this.jobID = jobId;
+    return this.jobID;
+
   }
 }
