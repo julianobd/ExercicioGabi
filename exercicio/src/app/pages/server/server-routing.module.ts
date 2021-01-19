@@ -18,10 +18,14 @@ import { AvatarEditComponent } from './server/avatar/avatar-edit/avatar-edit.com
 import { ExpMachineComponent } from './server/exp-machine/exp-machine.component';
 import { ExpMachineEditComponent } from './server/exp-machine/exp-machine-edit/exp-machine-edit.component';
 import { JobsComponent } from './server/jobs/jobs.component';
-import { DeseaseComponent } from './server/desease/desease.component';
 import { JobCreateComponent } from './server/jobs/job-create/job-create.component';
 import { JobEditComponent } from './server/jobs/job-edit/job-edit.component';
 import { JobDeleteComponent } from './server/jobs/job-delete/job-delete.component';
+import { DeseaseComponent } from './server/desease/desease.component';
+import { DeseaseEditComponent } from './server/desease/desease-edit/desease-edit.component';
+import { DeseaseDeleteComponent } from './server/desease/desease-delete/desease-delete.component';
+import { DeseaseCreateComponent } from './server/desease/desease-create/desease-create.component';
+
 
 
 const routes: Routes = [
@@ -42,10 +46,14 @@ const routes: Routes = [
   {  path:':id/expMachine', component: ExpMachineComponent },
   {  path: ':id/expMachine/expMachEdit/:idMach', component: ExpMachineEditComponent},
   { path: ':id/jobs', component: JobsComponent},
-  { path: ':id/desease', component: DeseaseComponent},
   { path: ':id/jobs/jobEdit/:jobId', component: JobEditComponent},
   { path: ':id/jobs/jobCreate', component: JobCreateComponent },
-  { path: ':id/jobs/jobDelete/:jobId', component: JobDeleteComponent}
+  { path: ':id/jobs/jobDelete/:jobId', component: JobDeleteComponent},
+  { path: ':id/desease', component: DeseaseComponent},
+  { path: ':id/desease/deseaseCreate', component: DeseaseCreateComponent },
+  { path: ':id/desease/deseaseEdit/:deseaseId', component: DeseaseEditComponent },
+  { path: ':id/desease/deseaseDelete/:deseaseId', component: DeseaseDeleteComponent }
+
 
 
 ];
