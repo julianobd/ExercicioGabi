@@ -1,0 +1,13 @@
+
+<form [formGroup]="dataParcel">
+  <div class="form-group">
+    <label for="parcelName">ParcelName</label>
+    <input type="text" class="form-control" id="parcelName" formControlName="parcelName">
+  </div>
+  <div class="form-group">
+    <label for="parcelDescription">ParcelDescription</label>
+    <input type="text" class="form-control" id="parcelDescription" formControlName="parcelDescription">
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="update()">Salvar</button>
+</form>

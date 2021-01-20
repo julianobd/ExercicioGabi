@@ -1,0 +1,58 @@
+
+<div class="card">
+  <h5 class="card-title">Editar Availabe Items</h5>
+  <div class="card-body">
+    <form [formGroup]="dataAvbItem">
+      <div class="form-group">
+        <label for="parcelName">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Health</label>
+        <input type="number" class="form-control" id="health" formControlName="health">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Vest</label>
+        <input type="text" class="form-control" id="vest" formControlName="vest">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Experience</label>
+        <input type="number" class="form-control" id="experience" formControlName="experience">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Hungry</label>
+        <input type="number" class="form-control" id="hungry" formControlName="hungry">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Money</label>
+        <input type="number" class="form-control" id="money" formControlName="money">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Status Point</label>
+        <input type="number" class="form-control" id="statusPoint" formControlName="statusPoint">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Is Initial</label>
+        <select class="custom-select" id="isInitial" formControlName="isInitial">
+        <option selected>Choose...</option>
+        <option [value]="true">True</option>
+        <option [value]="false" >False</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Quantity Initial</label>
+        <input type="number" class="form-control" id="quantityInitial" formControlName="quantityInitial">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Is Virtual</label>
+        <select class="custom-select" id="isVirtual" formControlName="isVirtual">
+          <option selected>Choose...</option>
+          <option [value]="true">True</option>
+          <option [value]="false" >False</option>
+          </select>
+      </div>
+    <button type="button" class="btn btn-primary"(click)="update()" >Salvar</button>
+    </form>
+  </div>
+</div>
+

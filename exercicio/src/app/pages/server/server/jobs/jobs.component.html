@@ -1,0 +1,40 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">
+        <button type="button" class="btn btn-info"
+        [routerLink]="['jobCreate']">
+            <span>+</span>
+            </button></th>
+      <th scope="col">Nome</th>
+      <th scope="col">cor</th>
+      <th scope="col">Tem Cura</th>
+      <th scope="col">Pode prender</th>
+      <th scope="col">Pode Casar</th>
+      <th scope="col">Padrão</th>
+      <th scope="col">XP requerido</th>
+
+      <th scope="col">Editar</th>
+      <th scope="col">Deletar</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let jobs of jobs; let i=index">
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ jobs?.name }}</td>
+      <td>{{ jobs?.color}}</td>
+      <td>{{ jobs?.canHeal }}</td>
+      <td>{{ jobs?.canArrest }}</td>
+      <td>{{ jobs?.canDoMarriage }}</td>
+      <td>{{ jobs?.isDefault }}</td>
+      <td>{{ jobs?.requirementXp }}</td>
+      <td><button type="button" class="btn btn-info" (click)="jobEdit(i)"
+        >Edit</button></td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="jobDelete(i)">Delete</button>
+      </td>
+    </tr>
+
+
+  </tbody>
+</table>

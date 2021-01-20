@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">
+      </th>
+      <th scope="col">title</th>
+      <th scope="col">expEachMinute</th>
+      <th scope="col">automaticStart</th>
+      <th scope="col">hourStart</th>
+      <th scope="col">hourEnds</th>
+      <th scope="col">enabled</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let expMach of expMach; let i=index">
+    <tr>
+      <th scope="row">1</th>
+      <td>{{ expMach?.description }}</td>
+      <td>{{ expMach?.expEachMinute }}</td>
+      <td>{{ expMach?.automaticStart }}</td>
+      <td>{{ expMach?.hourStart }}</td>
+      <td>{{ expMach?.hourEnds }}</td>
+      <td>{{ expMach?.enabled }}</td>
+
+      <td>
+        <button type="button" class="btn btn-info ml-1" (click)="editMach(i)">Editar</button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>

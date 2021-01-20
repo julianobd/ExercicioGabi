@@ -1,0 +1,34 @@
+<div class="modal" id="expTabModal3" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 modal-title>Editar Tabela de Experiência</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="experience">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+          </div>
+          <div class="form-group">
+            <label for="level">Level</label>
+            <input type="number" class="form-control" id="level" formControlName="level">
+          </div>
+          <div class="form-group">
+            <label for="exp">Experiência</label>
+            <input type="number" class="form-control" id="exp" formControlName="exp">
+          </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" (click)="update()">Atualizar</button>
+      </div>
+    </div>
+  </div>
+</div>

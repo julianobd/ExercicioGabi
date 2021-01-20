@@ -1,0 +1,159 @@
+
+<div class="row justify-content-center">
+  <div class="col-sm-12 mt-5 mb-4">
+    <button (click)="listServer()" class="btn btn-primary">Listar Servidores</button>
+  </div>
+
+</div>
+
+
+<!--Lista de Servidores-->
+<div class="row" *ngIf="!showdataServ; else showData">
+  <div class="col-sm-3 mb-4" *ngFor="let datalistServer of datalistServer; let i=index">
+    <div class="card">
+      <div class="card-body text-center">
+        <h5 class="card-title">Nome: {{datalistServer?.name}}</h5>
+        <a class="btn btn-primary" (click)="showServer(i)">More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Card de Informações do Servidor-->
+<ng-template #showData>
+<div class="row justify-content-center">
+  <div class="card mt-5 mb-5" style="width: 18rem;">
+  <div class="card-body text-center">
+    <h5 class="card-title"> Nome: {{dataList?.name}}</h5>
+  </div>
+  <ul class="list-group list-group-flush text-center">
+    <li class="list-group-item">Doença: {{dataList?.hasDisease}}</li>
+    <li class="list-group-item">Compartilhado: {{dataList?.shared}}</li>
+    <li class="list-group-item">Dinehiro Inicial: {{dataList?.initialMoney}}</li>
+    <li class="list-group-item">Pontuação Inicial: {{dataList?.initialStatsPoints}}</li>
+    <li class="list-group-item"><button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#expTabModal">Tabela de Experiência</button></li>
+    <li class="list-group-item"><button type="button" class="btn btn-outline-info">Pacotes</button></li>
+    <li class="list-group-item"><button type="button" class="btn btn-outline-info">Itens Disponíveis</button></li>
+    <li class="list-group-item"><button type="button" class="btn btn-outline-info">Editar Servidor</button></li>
+  </ul>
+</div>
+</div>
+
+</ng-template>
+
+<!--Tabela de Experiência-->
+<div class="modal" id="expTabModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 modal-title>Tabela de Experiência</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          <span >X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Level</th>
+              <th scope="col">Exp</th>
+              <th scope="col">Title</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let tabExp of tabExp">
+            <tr>
+              <td>{{ tabExp?.exp }}</td>
+              <td>{{ tabExp?.level }}</td>
+              <td>{{ tabExp?.title }}</td>
+              <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#expTabModal3">Editar</button></td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="delete(tabExp)">Deletar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#expTabModal2">Adicionar</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="expTabModal2" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 modal-title>Adicionar Tabela de Experiência</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="experience">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+          </div>
+          <div class="form-group">
+            <label for="level">Level</label>
+            <input type="number" class="form-control" id="level" formControlName="level">
+          </div>
+          <div class="form-group">
+            <label for="exp">Experiência</label>
+            <input type="number" class="form-control" id="exp" formControlName="exp">
+          </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" (click)="addExp()">Adicionar</button>
+      <button type="submit" class="btn btn-primary" (click)="saveExp()">Salvar Alterações</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="expTabModal3" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 modal-title>Editar Tabela de Experiência</h4>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="experience">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+          </div>
+          <div class="form-group">
+            <label for="level">Level</label>
+            <input type="number" class="form-control" id="level" formControlName="level">
+          </div>
+          <div class="form-group">
+            <label for="exp">Experiência</label>
+            <input type="number" class="form-control" id="exp" formControlName="exp">
+          </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" (click)="editSave(tabExp.exp,tabExp?.level,tabExp?.title)">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
