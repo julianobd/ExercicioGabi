@@ -2,3 +2,72 @@
 /*input.ng-touched.ng-invalid{
   border: 1px solid red;
 }*/
+.container-fluid{
+  background-image: url('../../../../assets/img/fundo\ 5.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 900px;
+  font-family: 'Roboto', sans-serif;
+  color: #707A84;
+  font-size: 14px;
+  line-height: 16px;
+}
+.card{
+  width: 500px;
+  height: 547px;
+  top: 144px;
+  left: 94px;
+  padding-top: 40px;
+
+}
+.card-header{
+  background-color:white;
+  border-bottom: none;
+
+}
+.card .container{
+  display: flex;
+}
+.card .center{
+  justify-content: center;
+}
+.form-control{
+  width: 369px;
+}
+.form-check-input{
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  background-color:#0275D8;
+}
+.custom-checkbox .custom-control-label::before {
+  border-radius: 0;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+
+.custom-control-label{
+  position: absolute;
+  line-height: 24px;
+
+}
+button{
+  margin-top:23px;
+  width: 370px;
+  background-color: #5CB85C;
+  font-weight: bold;
+  border:none;
+}
+button:hover{
+  background-color: #5CB85C!important;
+
+}
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #fff;
+  background-color:#5CB85C;
+  border-color: #5CB85C;
+}
+

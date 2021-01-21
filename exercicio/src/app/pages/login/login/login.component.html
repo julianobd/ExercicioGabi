@@ -1,60 +1,63 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header container center">
+      <img src="../../../../assets/img/espada.png">
+    </div>
+    <div class="card-body container center">
+      <form [formGroup]="formulario" (ngSubmit)="save()">
+        <div class="form-group" [ngClass]="aplicaCssErro('email')" >
+          <label for="email"
+            >Email
+          </label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              formControlName="email"
+            />
+            <app-campo-control-erro
+            [mostrarErro] = "verificaValidTouched('email')"
+            msgErro="Nome é obrigatório.">
+            </app-campo-control-erro>
+            <app-campo-control-erro
+            [mostrarErro] = "verificaEmailIvalido()"
+            msgErro="Email inválido.">
+            </app-campo-control-erro>
+            <!--<span *ngIf="formulario.get('email').touched && formulario.get('email').hasError('required')">Informe seu email</span>
+            <span *ngIf="formulario.get('email').touched && formulario.get('email').hasError('email')">Informe um email válido</span>-->
+          </div>
 
-<div class="card mt-5">
-  <div class="card-header">
-    <h5 class="card-title">Login</h5>
-  </div>
-  <div class="card-body">
-    <form [formGroup]="formulario" (ngSubmit)="save()">
-      <div class="form-group row" [ngClass]="aplicaCssErro('email')" >
-        <label for="email" class="col-sm-2 col-form-label control-label"
-          >Email
-        </label>
-        <div class="col-sm-10">
-          <input
+        <div class="form-group" [ngClass]="aplicaCssErro('password')">
+          <label for="password">Senha</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+            />
+            <app-campo-control-erro
+            [mostrarErro] = "verificaValidTouched('password')"
+            msgErro="Senha é obrigatória.">
+            </app-campo-control-erro>
+            <!-- <span *ngIf="formulario.get('password').touched && formulario.get('password').hasError('required')">Informe sua senha</span>-->
+          </div>
+          <div class="custom-control  custom-checkbox">
+            <input type="checkbox" class="custom-control-input item" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1">Lembrar-me</label>
+          </div>
 
-            type="text"
-            class="form-control"
-            id="email"
-            formControlName="email"
-          />
-          <app-campo-control-erro
-          [mostrarErro] = "verificaValidTouched('email')"
-          msgErro="Nome é obrigatório.">
-          </app-campo-control-erro>
-          <app-campo-control-erro
-          [mostrarErro] = "verificaEmailIvalido('email')"
-          msgErro="Email inválido.">
-          </app-campo-control-erro>
-          <!--<span *ngIf="formulario.get('email').touched && formulario.get('email').hasError('required')">Informe seu email</span>
-          <span *ngIf="formulario.get('email').touched && formulario.get('email').hasError('email')">Informe um email válido</span>-->
-        </div>
-      </div>
-      <div class="form-group row" [ngClass]="aplicaCssErro('password')">
-        <label for="password" class="col-sm-2 col-form-label">Senha</label>
-        <div class="col-sm-10">
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            formControlName="password"
-          />
-          <app-campo-control-erro
-          [mostrarErro] = "verificaValidTouched('password')"
-          msgErro="Senha é obrigatória.">
-          </app-campo-control-erro>
-          <!-- <span *ngIf="formulario.get('password').touched && formulario.get('password').hasError('required')">Informe sua senha</span>-->
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary mb-2 float-right">
-        <!--[disabled]="!formulario.valid"-->
-        Login
-      </button>
-      <div style="margin-top: 20px" *ngIf="formulario">
-        <div>Detalhes do form</div>
-        <pre>Form válido: {{ formulario.valid }}</pre>
-        <!--pre>Form submetido: {{ form.submitted }}</pre -->
-        <pre>Valores: <br>{{ formulario.value | json }}</pre>
-      </div>
-    </form>
+
+        <button type="submit" class="btn btn-primary mb-2 float-right" [disabled]="!formulario.valid">
+          <!---->
+          Login
+        </button>
+        <!--<div style="margin-top: 20px" *ngIf="formulario">
+          <div>Detalhes do form</div>
+          <pre>Form válido: {{ formulario.valid }}</pre>
+          <pre>Valores: <br>{{ formulario.value | json }}</pre>
+        </div>-->
+      </form>
+    </div>
   </div>
 </div>
+
