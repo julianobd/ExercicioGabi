@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-server-create',
   templateUrl: './server-create.component.html',
-  styleUrls: ['./server-create.component.sass']
+  styleUrls: ['./server-create.component.scss']
 })
 export class ServerCreateComponent implements OnInit {
   dataServer:FormGroup;

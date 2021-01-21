@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-desease-edit',
   templateUrl: './desease-edit.component.html',
-  styleUrls: ['./desease-edit.component.sass']
+  styleUrls: ['./desease-edit.component.scss']
 })
 export class DeseaseEditComponent implements OnInit {
   desease:FormGroup;

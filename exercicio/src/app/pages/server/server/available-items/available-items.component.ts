@@ -8,7 +8,7 @@ import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-available-items',
   templateUrl: './available-items.component.html',
-  styleUrls: ['./available-items.component.sass']
+  styleUrls: ['./available-items.component.scss']
 })
 export class AvailableItemsComponent implements OnInit {
   dataAvbItem:FormGroup;

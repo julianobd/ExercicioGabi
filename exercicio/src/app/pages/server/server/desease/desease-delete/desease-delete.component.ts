@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-desease-delete',
   templateUrl: './desease-delete.component.html',
-  styleUrls: ['./desease-delete.component.sass']
+  styleUrls: ['./desease-delete.component.scss']
 })
 export class DeseaseDeleteComponent implements OnInit {
   desease:FormGroup;

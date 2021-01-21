@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-user-delete',
   templateUrl: './user-delete.component.html',
-  styleUrls: ['./user-delete.component.sass']
+  styleUrls: ['./user-delete.component.scss']
 })
 export class UserDeleteComponent implements OnInit {
   user: FormGroup;

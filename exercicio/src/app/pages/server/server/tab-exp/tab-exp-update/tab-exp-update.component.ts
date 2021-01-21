@@ -10,7 +10,7 @@ import { ServerListService } from 'src/app/shared/services/server-list.service';
 @Component({
   selector: 'app-tab-exp-update',
   templateUrl: './tab-exp-update.component.html',
-  styleUrls: ['./tab-exp-update.component.sass']
+  styleUrls: ['./tab-exp-update.component.scss']
 })
 export class TabExpUpdateComponent implements OnInit {
   serverexpId:any;

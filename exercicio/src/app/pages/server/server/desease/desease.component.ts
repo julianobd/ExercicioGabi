@@ -7,7 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-desease',
   templateUrl: './desease.component.html',
-  styleUrls: ['./desease.component.sass']
+  styleUrls: ['./desease.component.scss']
 })
 export class DeseaseComponent implements OnInit {
   desease:any;

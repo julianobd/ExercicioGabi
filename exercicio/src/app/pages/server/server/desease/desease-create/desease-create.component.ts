@@ -6,7 +6,7 @@ import { DeseaseService } from './../../../../../shared/services/desease.service
 @Component({
   selector: 'app-desease-create',
   templateUrl: './desease-create.component.html',
-  styleUrls: ['./desease-create.component.sass']
+  styleUrls: ['./desease-create.component.scss']
 })
 export class DeseaseCreateComponent implements OnInit {
     desease:FormGroup

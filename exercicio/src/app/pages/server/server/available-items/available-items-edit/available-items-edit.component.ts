@@ -8,7 +8,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-available-items-edit',
   templateUrl: './available-items-edit.component.html',
-  styleUrls: ['./available-items-edit.component.sass']
+  styleUrls: ['./available-items-edit.component.scss']
 })
 export class AvailableItemsEditComponent implements OnInit {
   dataAvbItem:FormGroup;

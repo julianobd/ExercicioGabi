@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-parcel-edit',
   templateUrl: './parcel-edit.component.html',
-  styleUrls: ['./parcel-edit.component.sass']
+  styleUrls: ['./parcel-edit.component.scss']
 })
 export class ParcelEditComponent implements OnInit {
   dataParcel:FormGroup;

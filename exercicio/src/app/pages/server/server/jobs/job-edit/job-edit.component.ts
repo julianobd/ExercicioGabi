@@ -8,7 +8,7 @@ import { JobsService } from './../../../../../shared/services/jobs.service';
 @Component({
   selector: 'app-job-edit',
   templateUrl: './job-edit.component.html',
-  styleUrls: ['./job-edit.component.sass']
+  styleUrls: ['./job-edit.component.scss']
 })
 export class JobEditComponent implements OnInit {
   jobs:FormGroup;

@@ -8,7 +8,7 @@ import { JobsService } from './../../../../../shared/services/jobs.service';
 @Component({
   selector: 'app-job-delete',
   templateUrl: './job-delete.component.html',
-  styleUrls: ['./job-delete.component.sass']
+  styleUrls: ['./job-delete.component.scss']
 })
 export class JobDeleteComponent implements OnInit {
   jobs:FormGroup;

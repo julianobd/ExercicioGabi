@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-parcels',
   templateUrl: './parcels.component.html',
-  styleUrls: ['./parcels.component.sass']
+  styleUrls: ['./parcels.component.scss']
 })
 export class ParcelsComponent implements OnInit {
   parcels:FormGroup;

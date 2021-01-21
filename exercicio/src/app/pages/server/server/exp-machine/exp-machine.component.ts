@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-exp-machine',
   templateUrl: './exp-machine.component.html',
-  styleUrls: ['./exp-machine.component.sass']
+  styleUrls: ['./exp-machine.component.scss']
 })
 export class ExpMachineComponent implements OnInit {
   expMach:any;

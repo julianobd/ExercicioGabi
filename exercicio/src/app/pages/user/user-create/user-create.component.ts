@@ -6,7 +6,7 @@ import { UserService } from '../../../shared/services/user.service'
 @Component({
   selector: 'app-user-create',
   templateUrl: './user-create.component.html',
-  styleUrls: ['./user-create.component.sass']
+  styleUrls: ['./user-create.component.scss']
 })
 export class UserCreateComponent implements OnInit {
   user:FormGroup;

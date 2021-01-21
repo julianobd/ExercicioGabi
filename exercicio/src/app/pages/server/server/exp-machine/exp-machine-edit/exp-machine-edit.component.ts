@@ -9,7 +9,7 @@ import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-exp-machine-edit',
   templateUrl: './exp-machine-edit.component.html',
-  styleUrls: ['./exp-machine-edit.component.sass']
+  styleUrls: ['./exp-machine-edit.component.scss']
 })
 export class ExpMachineEditComponent implements OnInit {
   expMach: FormGroup

@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-tab-exp',
   templateUrl: './tab-exp.component.html',
-  styleUrls: ['./tab-exp.component.sass']
+  styleUrls: ['./tab-exp.component.scss']
 })
 export class TabExpComponent implements OnInit {
   tabExp:any;

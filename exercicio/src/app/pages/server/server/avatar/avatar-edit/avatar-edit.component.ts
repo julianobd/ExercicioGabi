@@ -8,7 +8,7 @@ import { AvatarService } from '../../../../../shared/services/avatar.service'
 @Component({
   selector: 'app-avatar-edit',
   templateUrl: './avatar-edit.component.html',
-  styleUrls: ['./avatar-edit.component.sass']
+  styleUrls: ['./avatar-edit.component.scss']
 })
 export class AvatarEditComponent implements OnInit {
   avatar:FormGroup;

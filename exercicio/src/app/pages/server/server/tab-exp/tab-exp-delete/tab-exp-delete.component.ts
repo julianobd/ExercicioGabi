@@ -5,7 +5,7 @@ import {Location} from '@angular/common';
 @Component({
   selector: 'app-tab-exp-delete',
   templateUrl: './tab-exp-delete.component.html',
-  styleUrls: ['./tab-exp-delete.component.sass']
+  styleUrls: ['./tab-exp-delete.component.scss']
 })
 export class TabExpDeleteComponent implements OnInit {
 

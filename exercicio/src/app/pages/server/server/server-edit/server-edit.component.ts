@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-server-edit',
   templateUrl: './server-edit.component.html',
-  styleUrls: ['./server-edit.component.sass']
+  styleUrls: ['./server-edit.component.scss']
 })
 export class ServerEditComponent implements OnInit {
   dataServer: FormGroup;

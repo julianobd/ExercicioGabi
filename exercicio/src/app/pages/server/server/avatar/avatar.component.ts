@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-avatar',
   templateUrl: './avatar.component.html',
-  styleUrls: ['./avatar.component.sass']
+  styleUrls: ['./avatar.component.scss']
 })
 export class AvatarComponent implements OnInit {
   dataReason:FormGroup

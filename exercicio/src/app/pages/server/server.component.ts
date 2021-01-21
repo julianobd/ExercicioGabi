@@ -7,7 +7,7 @@ import { take } from 'rxjs/operators';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
-  styleUrls: ['./server.component.sass']
+  styleUrls: ['./server.component.scss']
 })
 export class ServerComponent implements OnInit {
   datalistServer:any;
