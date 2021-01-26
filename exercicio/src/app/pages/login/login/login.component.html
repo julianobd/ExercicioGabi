@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="card">
     <div class="card-header container center">
-      <img src="../../../../assets/img/espada.png">
+      <h2>Login</h2>
     </div>
     <div class="card-body container center">
       <form [formGroup]="formulario" (ngSubmit)="save()">
@@ -48,8 +48,7 @@
 
 
         <button type="submit" class="btn btn-primary mb-2 float-right" [disabled]="!formulario.valid">
-          <!---->
-          Login
+          Entrar
         </button>
         <!--<div style="margin-top: 20px" *ngIf="formulario">
           <div>Detalhes do form</div>

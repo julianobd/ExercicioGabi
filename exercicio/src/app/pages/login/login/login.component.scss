@@ -3,9 +3,10 @@
   border: 1px solid red;
 }*/
 .container-fluid{
-  background-image: url('../../../../assets/img/fundo\ 5.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: -webkit-linear-gradient(180deg, #7749F8 0%, rgba(119, 73, 248, 0.64) 100%); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(180deg, #7749F8 0%, rgba(119, 73, 248, 0.64) 100%); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(180deg, #7749F8 0%, rgba(119, 73, 248, 0.64) 100%); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(180deg, #7749F8 0%, rgba(119, 73, 248, 0.64) 100%); /* Standard syntax */
   height: 900px;
   font-family: 'Roboto', sans-serif;
   color: #707A84;
@@ -13,18 +14,24 @@
   line-height: 16px;
 }
 .card{
-  width: 500px;
-  height: 547px;
-  top: 144px;
-  left: 94px;
+  width: 400px;
+
+  top: 250px;
+  left: 520px;
   padding-top: 40px;
 
 }
 .card-header{
   background-color:white;
   border-bottom: none;
+}
+.card-header h2{
+  font-weight: 600;
+  color: #152536;
+  top: 274px;
 
 }
+
 .card .container{
   display: flex;
 }
@@ -32,7 +39,7 @@
   justify-content: center;
 }
 .form-control{
-  width: 369px;
+  width: 345px;
 }
 .form-check-input{
   font-size: 12px;
@@ -40,7 +47,7 @@
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
-  background-color:#0275D8;
+  background-color:#7749F8;
 }
 .custom-checkbox .custom-control-label::before {
   border-radius: 0;
@@ -57,17 +64,17 @@
 button{
   margin-top:23px;
   width: 370px;
-  background-color: #5CB85C;
+  background-color: #7749F8;
   font-weight: bold;
   border:none;
 }
 button:hover{
-  background-color: #5CB85C!important;
+  background-color: #7749F8!important;
 
 }
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color:#5CB85C;
-  border-color: #5CB85C;
+  background-color:#7749F8;
+  border-color: #7749F8;
 }
 
