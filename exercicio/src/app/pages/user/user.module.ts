@@ -6,6 +6,7 @@ import { UserComponent } from './user.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { AuthGuard } from '../../guards/auth-guard';
 
 
 @NgModule({
@@ -19,6 +20,9 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     UserRoutingModule,
     ReactiveFormsModule,
     FormsModule
+  ],
+  providers:[
+    AuthGuard
   ]
 })
 export class UserModule { }

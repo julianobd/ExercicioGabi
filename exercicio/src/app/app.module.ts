@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -6,11 +5,15 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AuthGuard } from './guards/auth-guard';
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
 
   ],
   imports: [
@@ -21,7 +24,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ModalModule.forRoot()
 
   ],
-  providers: [],
+  providers:[
+  AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

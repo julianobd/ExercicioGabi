@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,9 +14,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   formulario: FormGroup;
+  usuarioToken:string;
 
 
-  constructor(private loginservice:LoginService, private fb:FormBuilder,private router:Router) {
+  constructor(
+    private loginservice:LoginService,
+    private fb:FormBuilder,
+    private router:Router) {
 
    }
 
@@ -31,10 +36,14 @@ export class LoginComponent implements OnInit {
     console.log(this.formulario)
     this.loginservice.postLogin(this.formulario.value).subscribe((res:any)=> {
       sessionStorage.setItem('user', JSON.stringify(res));
-      this.router.navigate(['/server'])
+      this.router.navigate(['/home']);
+
     },
+
     (error:any)=> alert('erro'));
+
   }
+
 
   verificaEmailIvalido(){
     let campoEmail = this.formulario.get('email')

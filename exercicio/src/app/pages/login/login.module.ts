@@ -6,6 +6,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './../../shared/shared.module';
 
+import { AuthGuard } from '../../guards/auth-guard'
+
+
 @NgModule({
   declarations: [
     LoginComponent
@@ -23,6 +26,9 @@ import { SharedModule } from './../../shared/shared.module';
     ReactiveFormsModule,
     FormsModule,
     RouterModule
+  ],
+  providers:[
+    AuthGuard
   ]
 })
 export class LoginModule { }

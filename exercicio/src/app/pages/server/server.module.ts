@@ -31,6 +31,8 @@ import { DeseaseComponent } from './server/desease/desease.component';
 import { DeseaseEditComponent } from './server/desease/desease-edit/desease-edit.component';
 import { DeseaseCreateComponent } from './server/desease/desease-create/desease-create.component';
 import { DeseaseDeleteComponent } from './server/desease/desease-delete/desease-delete.component';
+import { AuthGuard } from '../../guards/auth-guard';
+
 
 
 @NgModule({
@@ -68,6 +70,9 @@ import { DeseaseDeleteComponent } from './server/desease/desease-delete/desease-
     ReactiveFormsModule,
     FormsModule
 
+  ],
+  providers: [
+    AuthGuard
   ]
 })
 export class ServerModule { }
