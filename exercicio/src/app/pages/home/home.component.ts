@@ -16,8 +16,10 @@ export class HomeComponent implements OnInit {
   page = 1;
   pageSize = 6;
   collectionSize:number;
-
-
+  myimg = '../../../assets/img/entrar 1.png';
+  myimg1 = '../../../assets/img/cancel 2.png'
+  myimg2 = '../../../assets/img/checked 1.png'
+  indice:number;
 
   constructor(
     private serverListService: ServerListService
@@ -31,9 +33,13 @@ export class HomeComponent implements OnInit {
       this.datalistServers = res;
       this.SERVERS = res;
       this.refreshServers();
-     }
 
-    )}
+
+    }
+
+    )
+
+  }
 
     refreshServers(){
       this.collectionSize = this.SERVERS.length;
@@ -41,6 +47,7 @@ export class HomeComponent implements OnInit {
       .map((datalistServer, i) => ({id: i + 1, ...datalistServer}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
     }
+
 
 
 }

@@ -26,3 +26,10 @@ ngb-pagination ::ng-deep ul > li.active > a {
 ngb-pagination ::ng-deep ul > li:not(.active) > a {
   color:#7749F8 !important;
 }
+.table td, .table th {
+  text-align: center;
+}
+button{
+background-color: white;
+border: none;
+}

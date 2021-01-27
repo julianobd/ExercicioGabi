@@ -15,14 +15,20 @@
             <th scope="col">Ações</th>
           </tr>
         </thead>
-        <tbody *ngFor="let datalistServer of datalistServers;">
+        <tbody *ngFor="let datalistServer of datalistServers; let i=index">
           <tr>
-            <th scope="row">1</th>
-            <td>{{datalistServer.name}}</td>
-            <td>{{datalistServer.shared}}</td>
-            <td>{{datalistServer.hasDisease}}</td>
-            <td>{{datalistServer.initialMoney}}</td>
-            <td>botão</td>
+            <th scope="row">{{i}}</th>
+            <td>{{datalistServer?.name}}</td>
+            <td >
+              <img [src]="myimg2" *ngIf="datalistServer.shared == true">
+              <img [src]="myimg1" *ngIf="datalistServer.shared == false">
+            </td>
+            <td>
+              <img [src]="myimg2" *ngIf="datalistServer.hasDisease== true">
+              <img [src]="myimg1" *ngIf="datalistServer.hasDisease == false">
+            </td>
+            <td>{{datalistServer?.initialMoney}}</td>
+            <td><button><img [src]="myimg"></button></td>
           </tr>
           <tr>
 
@@ -41,7 +47,9 @@
           <option [ngValue]="8">8</option>
         </select>
       </div>
-        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshServers()">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"  aria-label="Custom pagination" (pageChange)="refreshServers()">
+          <ng-template ngbPaginationPrevious>Anterior</ng-template>
+          <ng-template ngbPaginationNext>Próximo</ng-template>
         </ngb-pagination>
 
       </div>

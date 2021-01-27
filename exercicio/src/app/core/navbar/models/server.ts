@@ -1,4 +1,5 @@
 export interface Server{
+
  name:string;
  shared:boolean;
  hasDisease:boolean;
