@@ -29,7 +29,14 @@ ngb-pagination ::ng-deep ul > li:not(.active) > a {
 .table td, .table th {
   text-align: center;
 }
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #F8F9FA;
+}
 button{
 background-color: white;
 border: none;
+}
+.card-footer{
+  background-color: white;
 }

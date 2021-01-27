@@ -3,8 +3,8 @@
     <div class="card-header">
       <h2>Servidores</h2>
     </div>
-    <div class="card-body">
-      <table class="table">
+    <div class="card-body mt-4">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -15,8 +15,8 @@
             <th scope="col">Ações</th>
           </tr>
         </thead>
-        <tbody *ngFor="let datalistServer of datalistServers; let i=index">
-          <tr>
+        <tbody >
+          <tr *ngFor="let datalistServer of datalistServers; let i=index">
             <th scope="row">{{i}}</th>
             <td>{{datalistServer?.name}}</td>
             <td >
