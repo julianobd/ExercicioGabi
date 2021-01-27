@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AuthGuard } from './guards/auth-guard';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -21,7 +22,8 @@ import { AuthGuard } from './guards/auth-guard';
     AppRoutingModule,
     HttpClientModule,
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgbModule
 
   ],
   providers:[

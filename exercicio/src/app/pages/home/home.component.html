@@ -1,4 +1,53 @@
-<div class="container-fluid">
-<app-navbar-home></app-navbar-home>
+<div class="container-fluid center">
+  <div class="card" style="width: 18rem;">
+    <div class="card-header">
+      <h2>Servidores</h2>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Compartilhado</th>
+            <th scope="col">Debuffs</th>
+            <th scope="col">Dinheiro Inicial</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let datalistServer of datalistServers;">
+          <tr>
+            <th scope="row">1</th>
+            <td>{{datalistServer.name}}</td>
+            <td>{{datalistServer.shared}}</td>
+            <td>{{datalistServer.hasDisease}}</td>
+            <td>{{datalistServer.initialMoney}}</td>
+            <td>botão</td>
+          </tr>
+          <tr>
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-between p-2">
+        <div>
+        <label class="mr-2"><b>Resultados por página</b></label>
+        <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshServers()">
+
+          <option [ngValue]="4">4</option>
+          <option [ngValue]="6">6</option>
+          <option [ngValue]="8">8</option>
+        </select>
+      </div>
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshServers()">
+        </ngb-pagination>
+
+      </div>
+
+    </div>
+  </div>
+
 
 </div>

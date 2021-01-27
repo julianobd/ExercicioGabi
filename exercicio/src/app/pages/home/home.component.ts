@@ -1,15 +1,46 @@
+
 import { Component, OnInit } from '@angular/core';
+import { ServerListService } from '../../shared/services/server-list.service';
+import { Server } from './../../core/navbar/models/server';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
 
-  constructor() { }
+export class HomeComponent implements OnInit {
+  datalistServer:Server[];
+  datalistServers:Server[];
+  SERVERS: Server[];
+  page = 1;
+  pageSize = 6;
+  collectionSize:number;
+
+
+
+  constructor(
+    private serverListService: ServerListService
+  ) {
+
+  }
 
   ngOnInit(): void {
-  }
+    this.serverListService.getServerList().subscribe((res:any)=>
+    {
+      this.datalistServers = res;
+      this.SERVERS = res;
+      this.refreshServers();
+     }
+
+    )}
+
+    refreshServers(){
+      this.collectionSize = this.SERVERS.length;
+      this.datalistServers = this.SERVERS
+      .map((datalistServer, i) => ({id: i + 1, ...datalistServer}))
+      .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+    }
+
 
 }
