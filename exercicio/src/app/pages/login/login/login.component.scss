@@ -2,25 +2,18 @@
 /*input.ng-touched.ng-invalid{
   border: 1px solid red;
 }*/
-.container-fluid{
-  background: -webkit-linear-gradient(180deg, #7749F8 0%, rgba(119, 73, 248, 0.64) 100%); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(180deg, #7749F8 0%, rgba(119, 73, 248, 0.64) 100%); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(180deg, #7749F8 0%, rgba(119, 73, 248, 0.64) 100%); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(180deg, #7749F8 0%, rgba(119, 73, 248, 0.64) 100%); /* Standard syntax */
-  height: 900px;
-  font-family: 'Roboto', sans-serif;
+
+
+.card{
+  width: 400px;
+  padding-top: 40px;
+  font-family: 'Inter', sans-serif;
   color: #707A84;
   font-size: 14px;
   line-height: 16px;
 }
-.card{
-  width: 400px;
 
-  top: 250px;
-  left: 520px;
-  padding-top: 40px;
 
-}
 .card-header{
   background-color:white;
   border-bottom: none;
