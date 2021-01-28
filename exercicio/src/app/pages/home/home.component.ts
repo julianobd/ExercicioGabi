@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   myimg2 = '../../../assets/img/checked 1.png'
   indice:number;
 
+
   constructor(
     private serverListService: ServerListService
   ) {
@@ -28,12 +29,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.serverListService.getServerList().subscribe((res:any)=>
     {
       this.datalistServers = res;
       this.SERVERS = res;
       this.refreshServers();
-
 
     }
 
@@ -48,6 +49,4 @@ export class HomeComponent implements OnInit {
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
     }
 
-
-
-}
+    }

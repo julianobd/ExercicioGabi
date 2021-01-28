@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
+import { SharedModule } from './../../shared/shared.module';
 import { ServerRoutingModule } from './server-routing.module';
 import { ServerListComponent } from './server/server-list/server-list.component';
 import { ServerEditComponent } from './server/server-edit/server-edit.component';
@@ -31,7 +31,9 @@ import { DeseaseComponent } from './server/desease/desease.component';
 import { DeseaseEditComponent } from './server/desease/desease-edit/desease-edit.component';
 import { DeseaseCreateComponent } from './server/desease/desease-create/desease-create.component';
 import { DeseaseDeleteComponent } from './server/desease/desease-delete/desease-delete.component';
+
 import { AuthGuard } from '../../guards/auth-guard';
+
 
 
 
@@ -62,13 +64,15 @@ import { AuthGuard } from '../../guards/auth-guard';
     DeseaseComponent,
     DeseaseEditComponent,
     DeseaseCreateComponent,
-    DeseaseDeleteComponent],
+    DeseaseDeleteComponent
+    ],
   imports: [
     CommonModule,
     ServerRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule
 
   ],
   providers: [
