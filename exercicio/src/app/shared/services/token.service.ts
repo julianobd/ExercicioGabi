@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TokenService {
   private token:string;
+  private userName:string;
   private serverId: string;
   private userId:string;
   private avataruuId:string;
@@ -20,6 +21,12 @@ export class TokenService {
     this.token = user.token;
     console.log('token salvo', this.token)
     return this.token;
+  }
+  getUserName(){
+    let user = JSON.parse(sessionStorage.getItem('user'))
+    this.userName = user.name;
+    console.log('Bem Vinda: ', this.userName);
+    return this.userName;
   }
   getServerId(){
     let server = JSON.parse(sessionStorage.getItem('server'))
