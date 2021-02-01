@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     console.log(this.formulario)
     this.loginservice.postLogin(this.formulario.value).subscribe((res:any)=> {
       sessionStorage.setItem('user', JSON.stringify(res));
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home-list']);
 
     },
 

@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-import { NavbarHomeComponent } from './navbar-home/navbar-home.component';
+
+import { HomeListRoutingModule } from './home-list-routing.module';
+import { HomeListComponent } from './home-list.component';
+
 import { AuthGuard } from '../../guards/auth-guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { SidenavComponent } from './sidenav/sidenav.component';
+
 
 @NgModule({
-  declarations: [HomeComponent, NavbarHomeComponent, SidenavComponent],
+  declarations: [HomeListComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule,
+    HomeListRoutingModule,
     NgbModule,
     ReactiveFormsModule,
     FormsModule
@@ -22,4 +23,4 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     AuthGuard
   ]
 })
-export class HomeModule { }
+export class HomeListModule { }
