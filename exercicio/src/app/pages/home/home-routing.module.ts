@@ -7,7 +7,7 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent,
   children: [
-  {path: 'server', loadChildren:() => import(`../server/server.module`).then(m => m.ServerModule), canActivate:[AuthGuard]},
+  {path: 'server/:id', loadChildren:() => import(`../server/server.module`).then(m => m.ServerModule), canActivate:[AuthGuard]},
   { path: 'user', loadChildren:()=> import(`../user/user.module`).then(m => m.UserModule), canActivate:[AuthGuard]}
 ]}
 

@@ -30,7 +30,7 @@ export class TokenService {
   }
   getServerId(){
     let server = JSON.parse(sessionStorage.getItem('server'))
-    this.serverId = server.id;
+    this.serverId = server;
     console.log('id salvo', this.serverId)
     return this.serverId;
 

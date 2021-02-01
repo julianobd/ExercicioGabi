@@ -28,7 +28,7 @@
                 <img [src]="myimg1" *ngIf="datalistServer.hasDisease == false">
               </td>
               <td>{{datalistServer?.initialMoney}}</td>
-              <td><button [routerLink]="['/home/server']" ><img [src]="myimg"></button></td>
+              <td><button (click)="onServer(i)"><img [src]="myimg"></button></td>
             </tr>
             <tr>
 

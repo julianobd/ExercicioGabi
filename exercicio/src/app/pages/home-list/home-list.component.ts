@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerListService } from '../../shared/services/server-list.service';
 import { Server } from './../../core/navbar/models/server';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-list',
@@ -18,9 +19,11 @@ export class HomeListComponent implements OnInit {
   myimg1 = '../../../assets/img/cancel 2.png'
   myimg2 = '../../../assets/img/checked 1.png'
   indice:number;
-
+  serverId:string;
   constructor(
-    private serverListService: ServerListService) { }
+    private serverListService: ServerListService,
+    private router:Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.serverListService.getServerList().subscribe((res:any)=>
@@ -40,6 +43,12 @@ export class HomeListComponent implements OnInit {
       this.datalistServers = this.SERVERS
       .map((datalistServer, i) => ({id: i + 1, ...datalistServer}))
       .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+    }
+
+    onServer(i){
+      this.serverId = this.datalistServers[i].id;
+      this.router.navigate(['home','server', this.serverId])
+      sessionStorage.setItem('server', JSON.stringify(this.serverId));
     }
 
     }

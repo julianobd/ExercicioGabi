@@ -1,8 +1,9 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ServerListService } from '../../shared/services/server-list.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
+import { JobsService } from './../../shared/services/jobs.service';
+
 
 @Component({
   selector: 'app-server',
@@ -10,24 +11,35 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./server.component.scss']
 })
 export class ServerComponent implements OnInit {
-  datalistServer:any;
+  /*datalistServer:any;
   dataList:any;
   showdataServ:boolean = false;
   tabExp:any;
-  experience:FormGroup;
+  experience:FormGroup;*/
   serverId:any;
+  avbItems:number;
+  jobs:number;
 
-  constructor(private serverListService: ServerListService,private router:Router, private fb: FormBuilder) {
-    this.experience = this.fb.group({
-      level:'',
-      exp:'',
-      title:''
+  constructor(
+    private serverListService: ServerListService,
+    private router:Router,
+    private route: ActivatedRoute,
+    private jobsService:JobsService) {
+    }
+
+
+  ngOnInit(): void {
+    this.serverId = this.route.snapshot.paramMap.get('id');
+    this.serverListService.getdataServer().subscribe((res:any)=>{
+      this.avbItems = res.availableItems.length;
+    })
+    this.jobsService.getJobs().subscribe((res:any)=>{
+      console.log(res)
+      this.jobs = res.length;
     })
 
-   }
-  ngOnInit(): void {
   }
-  listServer(){
+  /*listServer(){
     this.showdataServ = false;
     this.serverListService.getServerList().subscribe((res:any)=>
     {
@@ -43,7 +55,7 @@ export class ServerComponent implements OnInit {
     this.tabExp = this.dataList.expTable;
     sessionStorage.setItem('server', JSON.stringify(this.datalistServer[i]));
     this.serverId = this.datalistServer[i].id;
-    }
+    }*/
     user(){
       this.router.navigate(['/user'])
     }
