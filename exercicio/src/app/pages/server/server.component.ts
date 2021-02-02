@@ -1,9 +1,10 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ServerListService } from '../../shared/services/server-list.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { JobsService } from './../../shared/services/jobs.service';
-
+import { UserService } from './../../shared/services/user.service';
 
 @Component({
   selector: 'app-server',
@@ -19,12 +20,18 @@ export class ServerComponent implements OnInit {
   serverId:any;
   avbItems:number;
   jobs:number;
+  statsInitialpoint:number;
+  shared:boolean;
+  InitialMoney:number;
+  hasDisease:boolean;
+  users:number;
 
   constructor(
     private serverListService: ServerListService,
     private router:Router,
     private route: ActivatedRoute,
-    private jobsService:JobsService) {
+    private jobsService:JobsService,
+    private userService:UserService) {
     }
 
 
@@ -32,10 +39,19 @@ export class ServerComponent implements OnInit {
     this.serverId = this.route.snapshot.paramMap.get('id');
     this.serverListService.getdataServer().subscribe((res:any)=>{
       this.avbItems = res.availableItems.length;
+      this.InitialMoney = res.initialMoney;
+      this.statsInitialpoint = res.initialStatsPoints;
+      this.shared = res.shared;
+      this.hasDisease = res.hasDisease;
+
     })
     this.jobsService.getJobs().subscribe((res:any)=>{
       console.log(res)
       this.jobs = res.length;
+    })
+    this.userService.getUsers().subscribe((res:any)=>{
+      console.log(res.length);
+      this.user = res.length;
     })
 
   }
