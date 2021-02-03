@@ -3,6 +3,7 @@ import { take } from 'rxjs/operators';
 import { UserService } from '../../shared/services/user.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { User } from './../../core/navbar/models/users';
 
 @Component({
   selector: 'app-user',
@@ -10,8 +11,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  users:any;
-  datatUser:any;
+  user:User[];
+  users:User[];
+  USERS: User[];
+  page = 1;
+  pageSize = 4;
+  collectionSize:number;
   userId: any;
   constructor(
     private userService: UserService,
@@ -21,10 +26,12 @@ export class UserComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userService.getUsers().pipe(take(1)).subscribe(res=>{
+    this.userService.getUsers().pipe(take(1)).subscribe((res:any)=>{
       console.log(res);
-      this.datatUser = res;
-      this.users = this.datatUser;
+      this.users = res;
+      this.USERS = res;
+      this.refreshServers();
+
     })
   }
   userDelete(i){
@@ -37,7 +44,10 @@ export class UserComponent implements OnInit {
     sessionStorage.setItem('userid', JSON.stringify(this.userId));
     this.router.navigate(['userEdit', this.userId], {relativeTo: this.route})
   }
-
-
-
+  refreshServers(){
+    this.collectionSize = this.USERS.length;
+    this.users = this.USERS
+    .map((user, i) => ({id: i + 1, ...user}))
+    .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+  }
 }
