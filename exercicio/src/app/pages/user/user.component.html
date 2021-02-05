@@ -2,56 +2,62 @@
   <div class="card-header">
     <h2>Usuários</h2>
   </div>
+  <div class="btn-add">
+    <button type="button" class="btn btn-info" [routerLink]="['userCreate']"> Adicionar
+    </button>
+  </div>
+  <form>
   <div class="card-body mt-4">
-    <table class="table">
+    <div class="form-group form-inline">
+      Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
+      <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+  </div>
+
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">
-            <button type="button" class="btn btn-info"
-          [routerLink]="['userCreate']">
-              <span>+</span>
-              </button>
+          <th scope="col">#
           </th>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Permission</th>
+          <th  scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+          <th  scope="col" sortable="email" (sort)="onSort($event)">Email</th>
+          <th  scope="col" sortable="permission" (sort)="onSort($event)">Permission</th>
           <th scope="col">Editar</th>
           <th scope="col">Deletar</th>
         </tr>
       </thead>
       <tbody >
-        <tr *ngFor="let user of users; let i=index">
+        <tr *ngFor="let user of users$ | async;">
           <th scope="row">1</th>
-          <td>{{ user?.name }}</td>
-          <td>{{ user?.email }}</td>
-          <td>{{ user?.permission }}</td>
-          <td><a (click)="userEdit(i)"
+          <td><ngb-highlight [result]="user.name" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="user.email" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="user.permission | number" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><a
             ><img src="../../../assets/img/edit 1.png"></a></td>
           <td>
-            <a (click)="userDelete(i)"><img src="../../../assets/img/delete 3.png"></a>
+            <a><img src="../../../assets/img/delete 3.png"></a>
           </td>
         </tr>
       </tbody>
     </table>
+
   </div>
   <div class="card-footer">
     <div class="d-flex justify-content-between p-2">
       <div>
-      <label class="mr-2"><b>Resultados por página</b></label>
-      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshServers()">
+        <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+        </ngb-pagination>
 
-        <option [ngValue]="3">3</option>
+      <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+
+        <option [ngValue]="2">2</option>
         <option [ngValue]="4">4</option>
-        <option [ngValue]="5">5</option>
+        <option [ngValue]="6">6</option>
       </select>
     </div>
-      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"  aria-label="Custom pagination" (pageChange)="refreshServers()">
-        <ng-template ngbPaginationPrevious>Anterior</ng-template>
-        <ng-template ngbPaginationNext>Próximo</ng-template>
-      </ngb-pagination>
+
 
     </div>
 
   </div>
+</form>
 </div>
-
