@@ -1,16 +1,21 @@
 <div class="card mt-5">
   <div class="card-header">
-    <h2>Usuários</h2>
-  </div>
-  <div class="btn-add">
-    <button type="button" class="btn btn-info" [routerLink]="['userCreate']"> Adicionar
-    </button>
+    <p>Usuários</p>
   </div>
   <form>
   <div class="card-body mt-4">
-    <div class="form-group form-inline">
-      Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
-      <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+
+    <div class="form-group ">
+      <div class="d-flex justify-content-between p-2">
+        <div class="btn-add">
+          <button type="button" class="btn btn-info" [routerLink]="['userCreate']"> Adicionar
+          </button>
+        </div>
+        <div>
+          <input class="form-control" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" placeholder="Buscar usuário">
+          <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+        </div>
+      </div>
   </div>
 
     <table class="table table-striped">
@@ -44,17 +49,17 @@
   <div class="card-footer">
     <div class="d-flex justify-content-between p-2">
       <div>
+        <label class="mr-2"><b>Resultados por página</b></label>
+        <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+          <option [ngValue]="2">2</option>
+          <option [ngValue]="4">4</option>
+          <option [ngValue]="6">6</option>
+        </select>
+      </div>
         <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+          <ng-template ngbPaginationPrevious>Anterior</ng-template>
+          <ng-template ngbPaginationNext>Próximo</ng-template>
         </ngb-pagination>
-
-      <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
-
-        <option [ngValue]="2">2</option>
-        <option [ngValue]="4">4</option>
-        <option [ngValue]="6">6</option>
-      </select>
-    </div>
-
 
     </div>
 

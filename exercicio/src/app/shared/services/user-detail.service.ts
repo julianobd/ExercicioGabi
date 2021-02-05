@@ -109,7 +109,7 @@ export class UserDetailService {
     this.userService.getUsers().subscribe((res:any)=>
     {
       this.USERS = res;
-      console.log(this.USERS);
+
       this._search$.pipe(
         tap(() => this._loading$.next(true)),
         debounceTime(200),

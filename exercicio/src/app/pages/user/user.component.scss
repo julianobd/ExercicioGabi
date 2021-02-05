@@ -10,8 +10,12 @@
 .card-header{
   background-color: #ffffff;
 }
-h2{
+.card-header p{
   margin-left: 33px;
+  font-weight: 600;
+  color: #152536;
+  font-size: 28px;
+  margin-top: 24px;
 }
 ngb-pagination ::ng-deep ul > li.active > a {
   background-color: #7749F8 !important;
