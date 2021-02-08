@@ -1,24 +1,70 @@
-<form [formGroup]="user" (ngSubmit)="update()">
-  <div class="form-group">
-    <label for="name">Nome</label>
-    <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nome">
-  </div>
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="text" class="form-control" id="email" formControlName="email"  placeholder="Enter email">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="text" class="form-control" id="password" formControlName="password" placeholder="Password" >
-  </div>
-  <div class="form-group">
-    <label for="permission">Permission</label>
-    <input type="number" class="form-control" id="permission" formControlName="permission">
 
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" style="color: #784AF8;"><a>Usuários</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Editar</li>
+  </ol>
+</nav>
+<div class="card">
+  <div class="card-header">
+    Dados do Usuário
   </div>
-  <div class="form-group">
-    <label for="serverId">ServerID</label>
-    <input type="text" class="form-control" id="serverId" formControlName="serverId">
+  <div class="card-body mt-3">
+    <form [formGroup]="user">
+      <div class="row">
+        <div class="col-7">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nome">
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" class="form-control" id="password" formControlName="password" placeholder="Password" >
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="text" class="form-control" id="email" formControlName="email"  placeholder="Enter email">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="permission">Nível de Permissão</label>
+            <input type="number" class="form-control" id="permission" formControlName="permission">
+          </div>
+        </div>
+      </div>
+      <!--<div class="form-group">
+        <label for="serverId">ServerID</label>
+        <input type="text" class="form-control" id="serverId" formControlName="serverId">
+      </div>-->
+
+    </form>
   </div>
-  <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-</form>
+  <div class="card-footer d-flex justify-content-end">
+    <button class="btn btn-primary mr-2">Voltar</button>
+    <button class="btn btn-primary" (click)="openVerticallyCentered(content)">Salvar</button>
+  </div>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirmar alterações</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Você tem certeza que deseja alterar esses dados?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="update()" (click)="modal.close('Close click')">Salvar Alterações</button>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cancelar</button>
+  </div>
+</ng-template>
+
+

@@ -1,9 +1,14 @@
+import { element } from 'protractor';
+import { Validators } from '@angular/forms';
 import {DecimalPipe} from '@angular/common';
 import { Component, QueryList, ViewChildren } from '@angular/core';
 import { UserDetailService } from './../../shared/services/user-detail.service';
+import { UserService } from './../../shared/services/user.service';
 import { User } from './../../core/navbar/models/users';
 import { Observable } from 'rxjs';
 import {NgbdSortableHeader, SortEvent} from '../../shared/directives/sortable.directive';
+import { take } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -20,14 +25,20 @@ export class UserComponent {
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
-  //user:User[];
+
   //USERS: User[];
-  //userId: any;
+  userId: any;
+  user:any;
+
+
 
 
 
   constructor(
-    public service:UserDetailService
+    public service:UserDetailService,
+    public userService:UserService,
+    private router:Router,
+    private route: ActivatedRoute
   ) {
     this.users$ = service.users$;
     this.total$ = service.total$;
@@ -47,10 +58,9 @@ export class UserComponent {
   ngOnInit(): void {
     this.service.getUser();
 
-  /* this.userservice.getUsers().pipe(take(1)).subscribe((res:any)=>{
+/*  this.userService.getUsers().pipe(take(1)).subscribe((res:any)=>{
       console.log(res);
-      //this.users$ = res;
-      this.USERS = res;
+      this.dataUser = res;
 
     })*/
 
@@ -60,12 +70,30 @@ export class UserComponent {
     sessionStorage.setItem('userid', JSON.stringify(this.userId));
     this.router.navigate(['userDelete', this.userId], {relativeTo: this.route})
   }*/
- /* userEdit(i){
-    this.userId = this.users$[i].id;
-    sessionStorage.setItem('userid', JSON.stringify(this.userId));
+ userEdit(name){
+     this.userService.getUsers().subscribe((res:any)=>{
+       this.user = res;
+       console.log(name);
+       this.user.forEach(element => {
+         if(element.name == name){
+           console.log(element.id);
+           this.userId = element.id;
+         }
+       });
+       sessionStorage.setItem('userid', JSON.stringify(this.userId));
     this.router.navigate(['userEdit', this.userId], {relativeTo: this.route})
+     })
+
+    /*this.userService.getUsers().subscribe((res:any)=>{
+      this.user = res;
+      console.log(this.user[i].id)
+      this.userId = this.user[i].id;
+      sessionStorage.setItem('userid', JSON.stringify(this.userId));
+    this.router.navigate(['userEdit', this.userId], {relativeTo: this.route})
+  })*/
   }
-*/
+
+
 
 }
 

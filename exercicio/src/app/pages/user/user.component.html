@@ -31,12 +31,12 @@
         </tr>
       </thead>
       <tbody >
-        <tr *ngFor="let user of users$ | async;">
-          <th scope="row">1</th>
+        <tr *ngFor="let user of users$ | async; let i=index">
+          <th scope="row"> {{ i }}</th>
           <td><ngb-highlight [result]="user.name" [term]="service.searchTerm"></ngb-highlight></td>
           <td><ngb-highlight [result]="user.email" [term]="service.searchTerm"></ngb-highlight></td>
           <td><ngb-highlight [result]="user.permission | number" [term]="service.searchTerm"></ngb-highlight></td>
-          <td><a
+          <td><a (click)="userEdit(user.name)"
             ><img src="../../../assets/img/edit 1.png"></a></td>
           <td>
             <a><img src="../../../assets/img/delete 3.png"></a>
