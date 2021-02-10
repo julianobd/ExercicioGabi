@@ -57,7 +57,9 @@ export class UserComponent {
 
   ngOnInit(): void {
     this.service.getUser();
-
+    this.userService.getUsers().pipe(take(1)).subscribe((res:any)=>{
+      this.user = res;
+     })
 /*  this.userService.getUsers().pipe(take(1)).subscribe((res:any)=>{
       console.log(res);
       this.dataUser = res;
@@ -65,14 +67,18 @@ export class UserComponent {
     })*/
 
   }
- /* userDelete(i){
-    this.userId = this.users$[i].id;
+ userDelete(name){
+
+  this.user.forEach(element => {
+    if(element.name == name){
+      console.log(element.id);
+      this.userId = element.id;
+    }
+  });
     sessionStorage.setItem('userid', JSON.stringify(this.userId));
     this.router.navigate(['userDelete', this.userId], {relativeTo: this.route})
-  }*/
+  }
  userEdit(name){
-     this.userService.getUsers().subscribe((res:any)=>{
-       this.user = res;
        console.log(name);
        this.user.forEach(element => {
          if(element.name == name){
@@ -82,7 +88,7 @@ export class UserComponent {
        });
        sessionStorage.setItem('userid', JSON.stringify(this.userId));
     this.router.navigate(['userEdit', this.userId], {relativeTo: this.route})
-     })
+
 
     /*this.userService.getUsers().subscribe((res:any)=>{
       this.user = res;

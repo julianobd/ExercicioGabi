@@ -4,6 +4,7 @@ import { take } from 'rxjs/operators';
 import { UserService } from './../../../shared/services/user.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class UserDeleteComponent implements OnInit {
     private fb:FormBuilder,
     private userService: UserService,
     private router:Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private modalService: NgbModal
   ) {
 
    }
@@ -44,9 +46,14 @@ export class UserDeleteComponent implements OnInit {
     })
   }
   delete(){
-
     this.userService.deleteUser().pipe(take(1)).subscribe(res=>{
       console.log(this.dataUser)
     })
+  }
+  openVerticallyCentered(content) {
+    this.modalService.open(content, { centered: true });
+  }
+  back(): void {
+    this.router.navigate(['home/user'])
   }
 }

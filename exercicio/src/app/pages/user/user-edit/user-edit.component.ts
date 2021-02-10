@@ -51,4 +51,7 @@ export class UserEditComponent implements OnInit {
   openVerticallyCentered(content) {
     this.modalService.open(content, { centered: true });
   }
+  back(): void {
+    this.router.navigate(['home/user'])
+  }
 }

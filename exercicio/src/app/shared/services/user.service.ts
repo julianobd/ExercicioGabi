@@ -14,10 +14,13 @@ export class UserService {
 
    }
    getToken(){
-    return this.tokenService.getToken()
+    return this.tokenService.getToken();
    }
    getUserId(){
-     return this.tokenService.getUserId()
+     return this.tokenService.getUserId();
+   }
+   getServerId(){
+     return this.tokenService.getServerId();
    }
 
    getUsers(){
@@ -29,8 +32,7 @@ export class UserService {
       email:user.email,
       password: user.password,
       permission:user.permission,
-      serverId: user.serverId
-
+      serverId: this.getServerId()
     }
     return this.http.post(`https://hcs.dev4.com.br/api/Users/AddUser/${this.getToken()}`, dataUser)
   }

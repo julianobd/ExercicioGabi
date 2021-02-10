@@ -55,6 +55,45 @@
   background-color:#7749F8;
   color: white;
   }
-
+.modal-title{
+font-family: Inter;
+font-style: normal;
+font-weight: 800;
+font-size: 20px;
+line-height: 24px;
+}
+.modal-body{
+font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 28px;
+color: #68717A;
+}
+.btn{
+font-family: Inter;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+}
+.btn-save{
+  background-color: #7749F8;
+  color: #ffffff;
+}
+.btn-light{
+  background-color: #6C757D;
+  color:#ffffff;
+}
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+textarea:focus, input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  border-color: #CED4DA;
+}
 
 

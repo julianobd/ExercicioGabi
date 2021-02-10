@@ -47,22 +47,20 @@
     </form>
   </div>
   <div class="card-footer d-flex justify-content-end">
-    <button class="btn btn-primary mr-2">Voltar</button>
+    <button class="btn btn-primary mr-2" (click)="back()">Voltar</button>
     <button class="btn btn-primary" (click)="openVerticallyCentered(content)">Salvar</button>
   </div>
 </div>
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Confirmar alterações</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
+
   </div>
   <div class="modal-body">
     <p>Você tem certeza que deseja alterar esses dados?</p>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="update()" (click)="modal.close('Close click')">Salvar Alterações</button>
+    <button type="button" class="btn btn-save" (click)="update()" (click)="modal.close('Close click')">Salvar Alterações</button>
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cancelar</button>
   </div>
 </ng-template>
