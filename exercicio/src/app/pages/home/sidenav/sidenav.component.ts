@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TokenService } from './../../../shared/services/token.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
-
-  constructor() { }
+  serverId:string;
+  constructor(
+    private tokenService:TokenService,
+    private router:Router,
+    private route:ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
   }

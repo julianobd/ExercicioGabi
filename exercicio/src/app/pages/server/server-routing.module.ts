@@ -29,9 +29,11 @@ import { DeseaseCreateComponent } from './server/desease/desease-create/desease-
 
 
 const routes: Routes = [
-  { path: '', component: ServerComponent },
+  { path: '', component: ServerComponent ,
+  children:[
+
   { path: 'serverList', component: ServerListComponent },
-  { path: 'serverEdit', component: ServerEditComponent },
+  { path: ':id/serverEdit', component: ServerEditComponent },
   { path: ':id/tabExp', component: TabExpComponent },
   { path: 'tabExp/deleteExp', component: TabExpDeleteComponent },
   { path: ':id/tabExp/edit/:expId', component: TabExpUpdateComponent },
@@ -53,6 +55,9 @@ const routes: Routes = [
   { path: ':id/desease/deseaseCreate', component: DeseaseCreateComponent },
   { path: ':id/desease/deseaseEdit/:deseaseId', component: DeseaseEditComponent },
   { path: ':id/desease/deseaseDelete/:deseaseId', component: DeseaseDeleteComponent }
+  ]
+},
+
 
 
 

@@ -9,6 +9,7 @@ const routes: Routes = [
   children: [
   {path: 'server/:id', loadChildren:() => import(`../server/server.module`).then(m => m.ServerModule), canActivate:[AuthGuard]},
   { path: 'user', loadChildren:()=> import(`../user/user.module`).then(m => m.UserModule), canActivate:[AuthGuard]}
+
 ]}
 
 
