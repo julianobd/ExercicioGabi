@@ -1,0 +1,75 @@
+<div class="card mt-5">
+  <div class="card-header">
+    <p>{{ tableTitle }}</p>
+  </div>
+  <form>
+    <div class="card-body mt-4">
+      <div class="form-group">
+        <div class="d-flex space-between p-2">
+            <div class="btn-add">
+                <button
+                type="button"
+                class="btn btn-info"
+                (click)="onCreate()">
+                Adicionar
+                </button>
+            </div>
+            <div>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" type="text" name="search" [(ngModel)]="searchText" placeholder="Buscar {{ tableTitle }}">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">Buscar</span>
+                </div>
+              </div>
+                <span class="ml-3" *ngIf="searchText">Loading...</span>
+            </div>
+
+        </div>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+
+          <th scope="col" sortable="'column.displayName'" *ngFor="let column of columns " (sort)="onSort($event)">{{ column.displayName }}</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dataItem of dataItems$ |async | filter:searchText  | paginate: { itemsPerPage:pageSize, currentPage: p }  let i=index">
+            <th scope="row"> {{ i }}</th>
+            <td *ngFor="let column of columns"><ngb-highlight [result]="dataItem[column.columnName]" [term]="searchTerm"></ngb-highlight>
+            </td>
+            <td *ngFor="let action of actions; let i = index">
+              <button type="button" [ngClass]="'btn-action'" (click)="onAction(action,dataItem)"><img [src]="action.iconClass"></button>
+            </td>
+        </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex space-between p-2">
+          <div>
+            <b>Resultados por página</b>
+            <select [(ngModel)]="pageSize" name="pageSize">
+              <option [ngValue]="2"> 2</option>
+              <option [ngValue]="4" selected>4</option>
+              <option [ngValue]="6">6</option>
+            </select>
+          </div>
+          <div>
+            <pagination-controls
+              (pageChange)="p = $event"
+              class="float-right"
+              previousLabel="Anterior"
+              nextLabel="Próximo">
+            </pagination-controls>
+          </div>
+
+        </div>
+
+
+    </div>
+  </form>
+
+
+  </div>

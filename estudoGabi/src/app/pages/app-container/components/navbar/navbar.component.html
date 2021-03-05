@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-md navbar-dark mb-3">
+  <div class="navbar-collapse collapse" id="collapsingNavbar">
+
+      <ul class="navbar-nav  ml-auto">
+          <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse"><img src="../../../assets/img/profile-user 1.png"></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             {{userName}}
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item">Perfil</a>
+              <a class="dropdown-item"(click)=changeServer()>Trocar de servidor</a>
+              <a class="dropdown-item" (click)="logOut()">Sair</a>
+            </div>
+          </li>
+      </ul>
+  </div>
+</nav>

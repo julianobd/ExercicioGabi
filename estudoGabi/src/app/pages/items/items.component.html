@@ -1,0 +1,165 @@
+<app-table-detail
+[tableTitle] = "currentTitle"
+[columns] = "dataColumn"
+[dataItems$] ="dataItems"
+[ITEMS] = "ITEMS"
+[actions] = "dataAction"
+(action)="action($event)"
+(create)="create($event)"
+
+></app-table-detail>
+
+<!--<div class="card mt-5">
+  <div class="card-header">
+    <p>Itens</p>
+  </div>
+  <form>
+  <div class="card-body mt-4">
+    <div class="form-group ">
+      <div class="d-flex justify-content-between p-2">
+        <div class="btn-add">
+          <button type="button" class="btn btn-info" [routerLink]="['itemsCreate']"> Adicionar
+          </button>
+        </div>
+        <div>
+          <input class="form-control" type="text" name="searchTerm" [(ngModel)]="service.searchTerm" placeholder="Buscar item">
+          <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+        </div>
+      </div>
+  </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#
+          </th>
+          <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+          <th scope="col" sortable="health" (sort)="onSort($event)">Vida</th>
+          <th scope="col" sortable="vest" (sort)="onSort($event)">Colete</th>
+          <th scope="col" sortable="experience" (sort)="onSort($event)">Experiência</th>
+          <th scope="col" sortable="hungry" (sort)="onSort($event)">Fome</th>
+          <th scope="col" sortable="money" (sort)="onSort($event)">Dinheiro</th>
+          <th scope="col" sortable="statusPoint" (sort)="onSort($event)">Status Point</th>
+          <th scope="col" sortable="isInitial" (sort)="onSort($event)">Inicial</th>
+          <th scope="col" sortable="quantityInitial" (sort)="onSort($event)">Quantidade Inicial</th>
+          <th scope="col" sortable="isVirtual" (sort)="onSort($event)">Virtual</th>
+          <th scope="col-2">Ações</th>
+
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of items$ | async; let i=index">
+        <tr>
+          <th scope="row"> {{ i }}</th>
+          <td><ngb-highlight [result]="item.name" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="item.health" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="item.vest" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="item.experience" [term]="service.searchTerm"></ngb-highlight></td>
+
+          <td><ngb-highlight [result]="item.hungry" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="item.money" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="item.statusPoint" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="item.isInitial" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="item.quantityInitial" [term]="service.searchTerm"></ngb-highlight></td>
+          <td><ngb-highlight [result]="item.isVirtual" [term]="service.searchTerm"></ngb-highlight></td>
+
+          <td><a><img src="../../../assets/img/edit 1.png"></a></td>
+          <td><a><img src="../../../assets/img/delete 3.png"></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <div class="d-flex justify-content-between p-2">
+      <div>
+        <label class="mr-2"><b>Resultados por página</b></label>
+        <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+          <option [ngValue]="2">2</option>
+          <option [ngValue]="4">4</option>
+          <option [ngValue]="6">6</option>
+        </select>
+      </div>
+        <ngb-pagination [collectionSize]="(total$ | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
+          <ng-template ngbPaginationPrevious>Anterior</ng-template>
+          <ng-template ngbPaginationNext>Próximo</ng-template>
+        </ngb-pagination>
+
+    </div>
+
+  </div>
+  </form>
+</div>-->
+<!--<app-table></app-table>-->
+
+<!--
+<div class="modal fade" id="exampleModal6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adicionar Availabe Items</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+    <form [formGroup]="dataAvbItem">
+      <div class="form-group">
+        <label for="parcelName">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Health</label>
+        <input type="number" class="form-control" id="health" formControlName="health">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Vest</label>
+        <input type="text" class="form-control" id="vest" formControlName="vest">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Experience</label>
+        <input type="number" class="form-control" id="experience" formControlName="experience">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Hungry</label>
+        <input type="number" class="form-control" id="hungry" formControlName="hungry">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Money</label>
+        <input type="number" class="form-control" id="money" formControlName="money">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Status Point</label>
+        <input type="number" class="form-control" id="statusPoint" formControlName="statusPoint">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Is Initial</label>
+        <select class="custom-select" id="isInitial" formControlName="isInitial">
+        <option selected>Choose...</option>
+        <option [value]="true">True</option>
+        <option [value]="false" >False</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Quantity Initial</label>
+        <input type="number" class="form-control" id="quantityInitial" formControlName="quantityInitial">
+      </div>
+      <div class="form-group">
+        <label for="parcelDescription">Is Virtual</label>
+        <select class="custom-select" id="isVirtual" formControlName="isVirtual">
+          <option selected>Choose...</option>
+          <option [value]="true">True</option>
+          <option [value]="false" >False</option>
+          </select>
+      </div>
+    </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="addAvb()">Adicionar</button>
+        <button type="button" class="btn btn-primary" (click)="saveAvb()">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+-->

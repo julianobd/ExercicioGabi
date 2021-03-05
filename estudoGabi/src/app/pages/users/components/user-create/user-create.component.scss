@@ -1,0 +1,97 @@
+.breadcrumb{
+  height: 52px;
+  background-color: white;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+.card{
+  width: 995px;
+  height: 600px;
+  font-family: Inter;
+  font-style: normal;
+  color: #68717A;
+  display: flex;
+
+}
+.card-body{
+  height: 422px;
+}
+.card-header{
+  height: 82px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  color: #152536;
+}
+.form-control{
+  color: #68717A;
+}
+.card-footer{
+  background-color: white;
+}
+.btn-primary{
+  width: 100px;
+  height: 48px;
+  background-color: white;
+  color: black;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+}
+.btn-primary:hover{
+  background-color:#7749F8;
+  color: white;
+  }
+.modal-title{
+font-family: Inter;
+font-style: normal;
+font-weight: 800;
+font-size: 20px;
+line-height: 24px;
+}
+.modal-body{
+font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 28px;
+color: #68717A;
+}
+.btn{
+font-family: Inter;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+}
+.btn-save{
+  background-color: #7749F8;
+  color: #ffffff;
+}
+.btn-light{
+  background-color: #6C757D;
+  color:#ffffff;
+}
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+textarea:focus, input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  border-color: #CED4DA;
+}

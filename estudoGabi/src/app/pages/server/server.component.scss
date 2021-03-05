@@ -1,0 +1,35 @@
+.card{
+  width: 1192px!important;
+  min-height: 490px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+
+}
+.card-header{
+  background-color: #ffffff;
+}
+h2{
+  margin-left: 33px;
+}
+ngb-pagination ::ng-deep ul > li.active > a {
+  background-color: #7749F8 !important;
+  border-color: #7749F8 !important;
+}
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+  color:#7749F8 !important;
+}
+.table td, .table th {
+  text-align: center;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #F8F9FA;
+}
+button{
+background-color: white;
+border: none;
+}
+.card-footer{
+  background-color: white;
+}

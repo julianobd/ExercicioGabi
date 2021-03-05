@@ -1,0 +1,51 @@
+.card{
+  width: 995px!important;
+  min-height: 600px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+
+}
+.card-header{
+  background-color: #ffffff;
+  height: 82px;
+}
+.card-header p{
+  margin-left: 33px;
+  font-weight: 600;
+  color: #152536;
+  font-size: 28px;
+  margin-top: 4px;
+}
+ngb-pagination ::ng-deep ul > li.active > a {
+  background-color: #7749F8 !important;
+  border-color: #7749F8 !important;
+}
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+  color:#7749F8 !important;
+}
+.table td, .table th {
+  text-align: center;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #F8F9FA;
+}
+button{
+background-color: white;
+border: none;
+}
+.card-footer{
+  background-color: white;
+}
+.btn-add button{
+  color: #7749F8;
+  border: 1px solid #7749F8;
+  border-radius: 4px;
+}
+.btn-info:hover{
+  background-color: #7749F8;
+}
+.btn-add button:hover{
+  color: #ffffff;
+}

@@ -1,0 +1,106 @@
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" style="color: #784AF8;"><a>Items</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Adicionar</li>
+  </ol>
+</nav>
+<div class="card">
+  <div class="card-header">
+    Dados do Item
+  </div>
+  <div class="card-body mt-3">
+    <form [formGroup]="item">
+      <div class="row">
+        <div class="col-7">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nome">
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <label for="health">Vida</label>
+            <input type="number" class="form-control" id="health" formControlName="health">
+          </div>
+        </div>
+
+
+      </div>
+      <div class="row mt-3">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="vest">Colete</label>
+            <input type="number" class="form-control" id="email" formControlName="vest">
+          </div>
+
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="experience">Experiêcia</label>
+            <input type="number" class="form-control" id="experience" formControlName="experience">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="hungry">Fome</label>
+            <input type="number" class="form-control" id="hungry" formControlName="hungry">
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="money">Dinheiro</label>
+            <input type="number" class="form-control" id="money" formControlName="money">
+          </div>
+
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="statusPoint">Status</label>
+            <input type="number" class="form-control" id="statusPoint" formControlName="statusPoint">
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label for="isInitial"> Inicial</label>
+            <select class="custom-select" id="isInitial" formControlName="isInitial">
+            <option selected>Choose...</option>
+            <option [value]="true">True</option>
+            <option [value]="false" >False</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label for="isVirtual">Virtual</label>
+            <select class="custom-select" id="isVirtual" formControlName="isVirtual">
+              <option selected>Choose...</option>
+              <option [value]="true">True</option>
+              <option [value]="false" >False</option>
+              </select>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class ="card-footer d-flex justify-content-end">
+    <button class="btn btn-primary mr-2" (click)="back()">Voltar</button>
+    <button class="btn btn-primary" (click)="openVerticallyCentered(content)" >Salvar</button>
+  </div>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirmar alterações</h4>
+
+  </div>
+  <div class="modal-body">
+    <p>Você tem certeza que deseja alterar esses dados?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-save" (click)="save()"  (click)="modal.close('Close click')">Salvar Alterações</button>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cancelar</button>
+  </div>
+</ng-template>
