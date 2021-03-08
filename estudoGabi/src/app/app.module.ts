@@ -6,11 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { SharedModule } from './shared/shared.module';
-
-
-
-
-
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 
 @NgModule({
@@ -23,7 +19,8 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    SharedModule
+    SharedModule,
+    NgScrollbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

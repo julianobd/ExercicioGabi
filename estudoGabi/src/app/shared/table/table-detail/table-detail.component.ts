@@ -28,6 +28,7 @@ export class TableDetailComponent implements OnInit {
   pageSize=2
   active = 0;
   searchText;
+  name = 'Ngx-Scrollbar';
 
 
 

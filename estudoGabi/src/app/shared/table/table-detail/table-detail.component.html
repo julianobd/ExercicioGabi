@@ -26,36 +26,43 @@
 
         </div>
       </div>
-
-      <table class="table table-striped">
+      <div class="table-responsive">
+      <table class="table table-striped ">
         <thead>
-        <tr>
+        <tr >
 
           <th scope="col" sortable="'column.displayName'" *ngFor="let column of columns " (sort)="onSort($event)">{{ column.displayName }}</th>
         </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let dataItem of dataItems$ |async | filter:searchText  | paginate: { itemsPerPage:pageSize, currentPage: p }  let i=index">
+          <tbody>
 
-            <td *ngFor="let column of columns"
-            [term]="searchTerm"><!--<ngb-highlight
-              [result]=
-              "dataItem[column.columnName]"
-              [term]="searchTerm"></ngb-highlight>-->
-              {{
-                dataItem[column.columnName] === true ||dataItem[column.columnName] === false
-                ?(dataItem[column.columnName] | yesNo)
-                :(dataItem[column.columnName])
-              }}
+              <tr *ngFor="let dataItem of dataItems$ |async | filter:searchText  | paginate: { itemsPerPage:pageSize, currentPage: p }  let i=index" >
 
-            </td>
+                <td *ngFor="let column of columns"
+                [term]="searchTerm"><!--<ngb-highlight
+                  [result]=
+                  "dataItem[column.columnName]"
+                  [term]="searchTerm"></ngb-highlight>-->
+                  {{
+                    dataItem[column.columnName] === true ||dataItem[column.columnName] === false
+                    ?(dataItem[column.columnName] | yesNo)
+                    :(dataItem[column.columnName])
+                  }}
 
-            <td *ngFor="let action of actions; let i = index">
-              <button type="button" [ngClass]="'btn-action'" (click)="onAction(action,dataItem)"><img [src]="action.iconClass"></button>
-            </td>
-        </tr>
-          </tbody>
+                </td>
+
+                <td *ngFor="let action of actions; let i = index">
+                  <button type="button" [ngClass]="'btn-action'" (click)="onAction(action,dataItem)"><img [src]="action.iconClass"></button>
+                </td>
+
+            </tr>
+
+            </tbody>
+
+
+
       </table>
+      </div>
     </div>
     <div class="card-footer">
         <div class="d-flex space-between p-2">
@@ -71,6 +78,7 @@
             <pagination-controls
               (pageChange)="p = $event"
               class="float-right"
+              class="color-btn"
               previousLabel="Anterior"
               nextLabel="Próximo">
             </pagination-controls>

@@ -85,9 +85,23 @@ option{
 .space-between{
 justify-content: space-between;
 }
+.input-group{
+  width: 461px;
+}
 .input-group-text{
   color: #000000;
   font-weight: normal;
   background-color: #F8F9FA;
 }
+tbody{
+  height: 250px;
+  overflow-y: auto;
+}
+.color-btn{
+  color:#7749F8;
 
+}
+.ngx-pagination .current {
+  background: #7749F8!important;
+
+}

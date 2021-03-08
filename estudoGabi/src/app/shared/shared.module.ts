@@ -10,13 +10,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { yesNoPipe } from './pipes/yesNo.pipe';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 @NgModule({
   declarations: [
     CampoControlErroComponent,
     TableComponent,
     TableDetailComponent,
-    yesNoPipe],
+    yesNoPipe
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -24,7 +26,9 @@ import { yesNoPipe } from './pipes/yesNo.pipe';
     ReactiveFormsModule,
     FormsModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgScrollbarModule
+
 
   ],
   exports: [
