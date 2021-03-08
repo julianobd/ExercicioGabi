@@ -36,9 +36,20 @@
         </thead>
         <tbody>
           <tr *ngFor="let dataItem of dataItems$ |async | filter:searchText  | paginate: { itemsPerPage:pageSize, currentPage: p }  let i=index">
-            <th scope="row"> {{ i }}</th>
-            <td *ngFor="let column of columns"><ngb-highlight [result]="dataItem[column.columnName]" [term]="searchTerm"></ngb-highlight>
+
+            <td *ngFor="let column of columns"
+            [term]="searchTerm"><!--<ngb-highlight
+              [result]=
+              "dataItem[column.columnName]"
+              [term]="searchTerm"></ngb-highlight>-->
+              {{
+                dataItem[column.columnName] === true ||dataItem[column.columnName] === false
+                ?(dataItem[column.columnName] | yesNo)
+                :(dataItem[column.columnName])
+              }}
+
             </td>
+
             <td *ngFor="let action of actions; let i = index">
               <button type="button" [ngClass]="'btn-action'" (click)="onAction(action,dataItem)"><img [src]="action.iconClass"></button>
             </td>
