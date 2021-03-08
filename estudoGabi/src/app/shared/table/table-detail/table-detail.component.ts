@@ -28,8 +28,6 @@ export class TableDetailComponent implements OnInit {
   pageSize=2
   active = 0;
   searchText;
-  name = 'Ngx-Scrollbar';
-
 
 
   constructor() {
@@ -58,6 +56,8 @@ export class TableDetailComponent implements OnInit {
   onCreate(){
     this.create.emit('create')
   }
+
+
 
 
 }

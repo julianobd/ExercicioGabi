@@ -13,6 +13,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UserCreateComponent implements OnInit {
   user:FormGroup;
   closeResult: string;
+  dataTitle = "Usuários"
+  dataAction = "Adicionar"
+
   constructor(
     private fb:FormBuilder,
     private userService: UserService,
