@@ -34,9 +34,17 @@
         </div>
         <div class="col-4">
           <div class="form-group">
-            <label for="permission">Permission</label>
-            <input type="number" class="form-control" id="permission" formControlName="permission">
+
+              <label for="permission">Nível de Permissão</label>
+              <select class="custom-select" id="permission" formControlName="permission">
+                <option selected>Escolher...</option>
+                <option value="0">Moderador</option>
+                <option value="1">Administrador</option>
+                <option value="2">Adm Global</option>
+              </select>
+
           </div>
+
         </div>
       </div>
 
@@ -60,5 +68,6 @@
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cancelar</button>
   </div>
 </ng-template>
+
 
 

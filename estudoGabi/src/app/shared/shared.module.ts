@@ -12,6 +12,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { yesNoPipe } from './pipes/yesNo.pipe';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     TableComponent,
     TableDetailComponent,
     yesNoPipe,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    AlertComponent
   ],
   imports: [
     CommonModule,
