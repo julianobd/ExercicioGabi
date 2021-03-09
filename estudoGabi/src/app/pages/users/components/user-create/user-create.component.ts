@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { take } from 'rxjs/operators';
+import { take, catchError } from 'rxjs/operators';
 import { UserService } from '../../../../core/services/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,7 +17,9 @@ export class UserCreateComponent implements OnInit {
   closeResult: string;
   dataTitle = "Usuários"
   dataAction = "Adicionar";
-
+  alertMessage: string;
+  activeMessage:boolean = false;
+  typeAlert:any;
 
   constructor(
     private fb:FormBuilder,
@@ -40,8 +42,20 @@ export class UserCreateComponent implements OnInit {
   }
   save(){
     this.userService.createUser(this.user.value).pipe(take(1)).subscribe(res=>{
-      console.log(res)
-    })
+      console.log(res);
+      this.typeAlert = 'success'
+      this.alertMessage = "Usuário adicionado com sucesso";
+      this.activeMessage = true;
+
+
+    },
+    error =>{
+    console.log('oops', error);
+    this.typeAlert = 'danger'
+    this.alertMessage = "Não foi possível adicionar o usuário"
+    this.activeMessage = true;}
+    )
+
 }
 openVerticallyCentered(content) {
   this.modalService.open(content, { centered: true });

@@ -34,7 +34,7 @@ export class UserService {
       permission:user.permission,
       serverId: this.getServerId()
     }
-    return this.http.post(`https://hcs.dev4.com.br/api/Users/AddUser/${this.getToken()}`, dataUser)
+    return this.http.post(`https://hcsdgs.dev4.com.br/api/Users/AddUser/${this.getToken()}`, dataUser)
   }
 
   deleteUser(){

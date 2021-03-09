@@ -39,7 +39,8 @@ import { AlertComponent } from './alert/alert.component';
   exports: [
     CampoControlErroComponent,
     TableDetailComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    AlertComponent
   ]
 })
 export class SharedModule {

@@ -2,6 +2,12 @@
 [dataTitle]="dataTitle"
 [dataAction] = "dataAction"
 ></app-breadcrumb>
+<div *ngIf="activeMessage">
+  <app-alert
+  [alertMessage] = "alertMessage"
+  [typeAlert] = "typeAlert">
+  </app-alert>
+</div>
 <div class="card">
   <div class="card-header">
     Dados do Usuário
