@@ -1,51 +1,88 @@
 
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item" style="color: #784AF8;"><a>Usuários</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Editar</li>
-  </ol>
-</nav>
+<app-breadcrumb
+[dataTitle]="dataTitle"
+[dataAction] = "dataAction">
+</app-breadcrumb>
 <div class="card">
   <div class="card-header">
     Dados do Usuário
   </div>
-  <div class="card-body mt-3">
-    <form [formGroup]="user">
-      <div class="row">
-        <div class="col-7">
-          <div class="form-group">
-            <label for="name">Nome</label>
-            <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nome">
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a ngbNavLink>Dados</a>
+    <ng-template ngbNavContent>
+      <div class="card-body mt-3">
+        <form [formGroup]="user">
+          <div class="row">
+            <div class="col-7">
+              <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nome">
+              </div>
+            </div>
+
           </div>
-        </div>
+          <div class="row mt-3">
+            <div class="col-4">
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="text" class="form-control" id="email" formControlName="email"  placeholder="Enter email">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label for="permission">Nível de Permissão</label>
+                <input type="number" class="form-control" id="permission" formControlName="permission">
+              </div>
+            </div>
+          </div>
+          <!--<div class="form-group">
+            <label for="serverId">ServerID</label>
+            <input type="text" class="form-control" id="serverId" formControlName="serverId">
+          </div>-->
+
+        </form>
+      </div>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2">
+    <a ngbNavLink>Senha</a>
+    <ng-template ngbNavContent>
+      <form [formGroup]="user">
+        <div class="row">
         <div class="col-5">
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Senha Atual</label>
             <input type="text" class="form-control" id="password" formControlName="password" placeholder="Password" >
           </div>
         </div>
       </div>
-      <div class="row mt-3">
-        <div class="col-4">
+      </form>
+      <form [formGroup]="userPassword">
+      <div class="row">
+        <div class="col-5">
           <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="text" class="form-control" id="email" formControlName="email"  placeholder="Enter email">
+            <label for="password">Nova Senha</label>
+            <input type="text" class="form-control" id="password" formControlName="password" placeholder="Password" >
           </div>
         </div>
-        <div class="col-4">
+       <div class="col-5">
           <div class="form-group">
-            <label for="permission">Nível de Permissão</label>
-            <input type="number" class="form-control" id="permission" formControlName="permission">
+            <label for="confirmPassword">Confirme a senha</label>
+            <input type="text" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Password" >
           </div>
         </div>
       </div>
-      <!--<div class="form-group">
-        <label for="serverId">ServerID</label>
-        <input type="text" class="form-control" id="serverId" formControlName="serverId">
-      </div>-->
+      </form>
+    </ng-template>
+  </li>
+</ul>
 
-    </form>
-  </div>
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
+<!--<pre>Active: {{ active }}</pre>-->
+
+
   <div class="card-footer d-flex justify-content-end">
     <button class="btn btn-primary mr-2" (click)="back()">Voltar</button>
     <button class="btn btn-primary" (click)="openVerticallyCentered(content)">Salvar</button>

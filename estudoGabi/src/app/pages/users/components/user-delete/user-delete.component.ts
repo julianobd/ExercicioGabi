@@ -15,6 +15,8 @@ export class UserDeleteComponent implements OnInit {
   user: FormGroup;
   dataUser: any;
   userId:any;
+  dataTitle = "Usuários";
+  dataAction = "Deletar";
   constructor(
     private fb:FormBuilder,
     private userService: UserService,
@@ -44,7 +46,9 @@ export class UserDeleteComponent implements OnInit {
   }
   delete(){
     this.userService.deleteUser(this.userId).pipe(take(1)).subscribe(res=>{
-      console.log(this.dataUser)
+      console.log('Deletado', this.userId)
+
+      this.router.navigate(['app-container/users'])
     })
   }
   openVerticallyCentered(content) {

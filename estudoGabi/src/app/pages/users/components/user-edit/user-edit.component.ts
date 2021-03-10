@@ -13,9 +13,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class UserEditComponent implements OnInit {
   user: FormGroup;
+  userPassword:FormGroup;
   dataUser: any;
   userId:any;
   closeResult: string;
+  dataTitle = "Usuários";
+  dataAction = "Editar";
+  active = 1;
+
   constructor(
     private fb:FormBuilder,
     private userService: UserService,
@@ -30,8 +35,13 @@ export class UserEditComponent implements OnInit {
       name:[null],
       email:[null],
       password:[null],
-      permission:[null]
+      permission:[null],
+
   })
+    this.userPassword = this.fb.group({
+      password:'',
+      confirmPassword:''
+    })
     this.userService.getUsers().pipe(take(1)).subscribe((res:any)=>{
       console.log(res)
       this.dataUser = res;
@@ -44,8 +54,9 @@ export class UserEditComponent implements OnInit {
   }
 
   update(){
-    this.userService.editUser(this.user.value).pipe(take(1)).subscribe(res=>{
-      console.log('Atualizado')
+    this.userService.editUser(this.user.value, this.userId).pipe(take(1)).subscribe(res=>{
+      console.log('Atualizado ')
+      this.router.navigate(['app-container/users'])
     });
 
   }

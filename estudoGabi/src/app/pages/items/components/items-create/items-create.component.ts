@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from './../../../../core/services/user.service';
+
 
 @Component({
   selector: 'app-items-create',
@@ -40,6 +40,7 @@ export class ItemsCreateComponent implements OnInit {
   save(){
     this.itemsService.createItem(this.item.value).pipe(take(1)).subscribe(res=>{
       console.log(res)
+      this.router.navigate(['app-container/items'])
     })
 
 

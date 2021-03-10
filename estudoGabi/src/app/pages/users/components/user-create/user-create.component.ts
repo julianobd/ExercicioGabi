@@ -41,12 +41,16 @@ export class UserCreateComponent implements OnInit {
   ngOnInit(): void {
   }
   save(){
+
+
+
     this.userService.createUser(this.user.value).pipe(take(1)).subscribe(res=>{
       console.log(res);
       this.typeAlert = 'success'
       this.alertMessage = "Usuário adicionado com sucesso";
       this.activeMessage = true;
       this.user.reset();
+      this.router.navigate(['app-container/users'])
     },
     error =>{
     console.log('oops', error);

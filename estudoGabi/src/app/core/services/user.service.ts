@@ -38,7 +38,7 @@ export class UserService {
     return this.http.delete(`https://hcs.dev4.com.br/api/Users/DelUser/${this.getToken()}/${userId}`)
   }
 
-  editUser(dataEdit){
-    return this.http.put(`https://hcs.dev4.com.br/api/Users/EditUser/${this.getToken()}`,dataEdit)
+  editUser(dataEdit,userId){
+    return this.http.put(`https://hcs.dev4.com.br/api/Users/EditUser/${this.getToken()}/${userId}`,dataEdit)
   }
 }
