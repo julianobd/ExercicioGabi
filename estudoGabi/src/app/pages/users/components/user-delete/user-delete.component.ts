@@ -43,7 +43,7 @@ export class UserDeleteComponent implements OnInit {
     })
   }
   delete(){
-    this.userService.deleteUser().pipe(take(1)).subscribe(res=>{
+    this.userService.deleteUser(this.userId).pipe(take(1)).subscribe(res=>{
       console.log(this.dataUser)
     })
   }

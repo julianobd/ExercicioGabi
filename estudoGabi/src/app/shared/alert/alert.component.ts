@@ -14,7 +14,7 @@ export class AlertComponent implements OnInit {
 
 
   constructor(alertConfig: NgbAlertConfig) {
-    if(this.typeAlert === 'succes'){
+    if(this.typeAlert = 'success'){
     alertConfig.type = 'success';
     alertConfig.dismissible = false;}
     else{
@@ -26,7 +26,7 @@ export class AlertComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.showAlert = false;
-    }, 3000);
+    }, 7000);
 
   }
 

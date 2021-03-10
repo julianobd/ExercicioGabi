@@ -40,12 +40,12 @@
   </div>
   <div class="card-footer d-flex justify-content-end">
     <button class="btn btn-primary mr-2" (click)="back()">Voltar</button>
-    <button class="btn btn-primary" (click)="delete()" (click)="openVerticallyCentered(content)">Salvar</button>
+    <button class="btn btn-primary"  (click)="openVerticallyCentered(content)">Salvar</button>
   </div>
 </div>
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Confirmar alterações</h4>
+    <h4 class="modal-title" (click)="delete()">Confirmar alterações</h4>
 
   </div>
   <div class="modal-body">

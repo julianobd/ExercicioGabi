@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { take, catchError } from 'rxjs/operators';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { take } from 'rxjs/operators';
 import { UserService } from '../../../../core/services/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,10 +30,10 @@ export class UserCreateComponent implements OnInit {
 
   ) {
     this.user = this.fb.group({
-      name:'',
-      email:'',
-      password:'',
-      permission:'',
+      name:['',[Validators.required]],
+      email:['', [Validators.required, Validators.email]],
+      password:['', [Validators.required]],
+      permission:['',[Validators.required]],
 
   })
 }
@@ -46,8 +46,7 @@ export class UserCreateComponent implements OnInit {
       this.typeAlert = 'success'
       this.alertMessage = "Usuário adicionado com sucesso";
       this.activeMessage = true;
-
-
+      this.user.reset();
     },
     error =>{
     console.log('oops', error);
@@ -63,5 +62,8 @@ openVerticallyCentered(content) {
 back(): void {
   this.router.navigate(['app-container/users'])
 }
+
+
+
 
 }

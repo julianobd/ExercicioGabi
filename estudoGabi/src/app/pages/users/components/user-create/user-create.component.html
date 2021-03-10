@@ -1,7 +1,8 @@
 <app-breadcrumb
 [dataTitle]="dataTitle"
 [dataAction] = "dataAction"
-></app-breadcrumb>
+>
+</app-breadcrumb>
 <div *ngIf="activeMessage">
   <app-alert
   [alertMessage] = "alertMessage"
@@ -18,13 +19,14 @@
         <div class="col-7">
           <div class="form-group">
             <label for="name">Nome</label>
-            <input type="text" class="form-control" id="name" formControlName="name">
+            <input
+            type="text" class="form-control" id="name" formControlName="name">
           </div>
         </div>
         <div class="col-5">
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="text" class="form-control" id="password" formControlName="password">
+            <input type="password" class="form-control" id="password" formControlName="password">
           </div>
         </div>
 

@@ -16,9 +16,6 @@ export class UserService {
    getToken(){
     return this.tokenService.getToken();
    }
-   getUserId(){
-     return this.tokenService.getUserId();
-   }
    getServerId(){
      return this.tokenService.getServerId();
    }
@@ -34,14 +31,14 @@ export class UserService {
       permission:user.permission,
       serverId: this.getServerId()
     }
-    return this.http.post(`https://hcsdgs.dev4.com.br/api/Users/AddUser/${this.getToken()}`, dataUser)
+    return this.http.post(`https://hcs.dev4.com.br/api/Users/AddUser/${this.getToken()}`, dataUser)
   }
 
-  deleteUser(){
-    return this.http.delete(`https://hcs.dev4.com.br/api/Users/DelUser/${this.getToken()}/${this.getUserId()}`)
+  deleteUser(userId){
+    return this.http.delete(`https://hcs.dev4.com.br/api/Users/DelUser/${this.getToken()}/${userId}`)
   }
 
   editUser(dataEdit){
-    return this.http.put(`https://hcs.dev4.com.br/api/Users/EditUser/${this.getToken()}/${this.getUserId()}`,dataEdit)
+    return this.http.put(`https://hcs.dev4.com.br/api/Users/EditUser/${this.getToken()}`,dataEdit)
   }
 }
