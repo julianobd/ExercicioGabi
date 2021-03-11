@@ -22,6 +22,7 @@
             </div>
 
           </div>
+
           <div class="row mt-3">
             <div class="col-4">
               <div class="form-group">
@@ -48,28 +49,32 @@
   <li [ngbNavItem]="2">
     <a ngbNavLink>Senha</a>
     <ng-template ngbNavContent>
-      <form [formGroup]="user">
-        <div class="row">
-        <div class="col-5">
-          <div class="form-group">
-            <label for="password">Senha Atual</label>
-            <input type="text" class="form-control" id="password" formControlName="password" placeholder="Password" >
-          </div>
-        </div>
-      </div>
-      </form>
       <form [formGroup]="userPassword">
       <div class="row">
         <div class="col-5">
           <div class="form-group">
             <label for="password">Nova Senha</label>
-            <input type="text" class="form-control" id="password" formControlName="password" placeholder="Password" >
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" >
+          </div>
+          <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.password">
+              <div class="error-message" *ngIf="userPassword.get('password').hasError(error.type) && (userPassword.get('password').dirty || userPassword.get('password').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
           </div>
         </div>
        <div class="col-5">
           <div class="form-group">
             <label for="confirmPassword">Confirme a senha</label>
-            <input type="text" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Password" >
+            <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Password" >
+          </div>
+          <div class="error-messages">
+            <ng-container *ngFor="let error of error_messages.confirmPassword">
+              <div class="error-message" *ngIf="userPassword.get('confirmPassword').hasError(error.type) && (userPassword.get('confirmPassword').dirty || userPassword.get('confirmPassword').touched)">
+                {{ error.message }}
+              </div>
+            </ng-container>
           </div>
         </div>
       </div>
@@ -103,3 +108,31 @@
 </ng-template>
 
 
+<!--
+  <form [formGroup]="userPassword">
+    <div class="row">
+    <div class="col-5">
+      <div class="form-group">
+        <label for="actualPassword">Senha Atual</label>
+        <input type="password" class="form-control" id="actualPassword" formControlName="actualPassword" placeholder="Password" >
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5">
+      <div class="form-group">
+        <label for="password">Nova Senha</label>
+        <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" >
+        <p>Nova Senha {{ userPassword.value | json}}</p>
+      </div>
+    </div>
+   <div class="col-5">
+      <div class="form-group">
+        <label for="confirmPassword">Confirme a senha</label>
+        <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Password" >
+      </div>
+    </div>
+  </div>
+  </form>
+-->

@@ -9,6 +9,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { AuthGuard } from '../../core/guards/auth-guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './../../shared/shared.module';
+import { ClarityModule } from '@clr/angular';
 
 
 
@@ -24,7 +25,8 @@ import { SharedModule } from './../../shared/shared.module';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
-    SharedModule
+    SharedModule,
+    ClarityModule
   ],
   providers:[
     AuthGuard
